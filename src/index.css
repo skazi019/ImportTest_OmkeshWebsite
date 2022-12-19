@@ -1,3 +1,18 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@font-face {
+  font-family: 'DM Serif Display', serif;
+  font-style: normal;
+  font-weight: 400;
+  src: local('DM Serif Display'),
+    url('./assets/fonts/DM_Serif_Display/DMSerifDisplay-Regular.ttf'); /* IE9 Compat Modes */
+}
+
+@font-face {
+  font-family: 'DM Serif Display', serif;
+  font-style: italic;
+  font-weight: 400;
+  src: url('./assets/fonts/DM_Serif_Display/DMSerifDisplay-Italic.ttf'); /* IE9 Compat Modes */
+}
