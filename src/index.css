@@ -16,3 +16,37 @@
   font-weight: 400;
   src: url('./assets/fonts/DM_Serif_Display/DMSerifDisplay-Italic.ttf'); /* IE9 Compat Modes */
 }
+
+@font-face {
+  font-family: 'DM Sans', sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  src: local('DM Sans'),
+    url('./assets/fonts/DM_Sans/DMSans-Regular.ttf'); /* IE9 Compat Modes */
+}
+
+@font-face {
+  font-family: 'DM Sans', sans-serif;
+  font-style: italic;
+  font-weight: 400;
+  src: local('DM Sans'),
+    url('./assets/fonts/DM_Sans/DMSans-Italic.ttf'); /* IE9 Compat Modes */
+}
+
+
+
+@font-face {
+  font-family: 'DM Sans', sans-serif;
+  font-style: normal;
+  font-weight: 700;
+  src: local('DM Sans'),
+    url('./assets/fonts/DM_Sans/DMSans-Medium.ttf'); /* IE9 Compat Modes */
+}
+
+@font-face {
+  font-family: 'DM Sans', sans-serif;
+  font-style: italic;
+  font-weight: 700;
+  src: local('DM Sans'),
+    url('./assets/fonts/DM_Sans/DMSans-MediumItalic.ttf'); /* IE9 Compat Modes */
+}

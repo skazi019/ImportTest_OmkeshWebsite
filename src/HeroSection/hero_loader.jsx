@@ -21,7 +21,7 @@ export default function HeroLoader() {
         src={heroImage}
         width='720px'
         height='640px'
-        className='aspect-auto object-cover'
+        className='hidden lg:block aspect-auto object-cover'
       />
     </div>
   )
