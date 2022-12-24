@@ -17,7 +17,11 @@ export default function DesktopNavbar() {
   return (
     <>
       <div className='px-4 md:px-10 lg:mx-auto lg:max-w-6xl w-full pt-12 flex flex-row justify-end items-right'>
-        <button layoutId='nav-button' onClick={() => setopenNav(!openNav)}>
+        <button
+          layoutId='nav-button'
+          className='fixed'
+          onClick={() => setopenNav(!openNav)}
+        >
           <svg
             className='w-6 h-6'
             width='36'
@@ -63,7 +67,11 @@ export default function DesktopNavbar() {
             className='fixed z-10 top-0 left-0 h-screen w-screen bg-red-600'
           >
             <div className='px-4 md:px-10 lg:mx-auto lg:max-w-6xl w-full pt-12 flex flex-row justify-end items-right'>
-              <button layoutId='nav-button' className='' onClick={() => setopenNav(!openNav)}>
+              <button
+                layoutId='nav-button'
+                className=''
+                onClick={() => setopenNav(!openNav)}
+              >
                 <svg
                   className='w-6 h-6'
                   width='24'
@@ -83,7 +91,7 @@ export default function DesktopNavbar() {
             </div>
 
             <div className='px-4 md:px-10 lg:mx-auto lg:max-w-6xl w-full '>
-              <motion.div className='h-screen w-fit flex flex-col gap-12 lg:gap-16 justify-center items-left ml-14'>
+              <motion.div className='h-screen w-fit flex flex-col gap-12 lg:gap-16 justify-center items-left ml-14 pb-24'>
                 {links.map(({ name, to, id }) => (
                   <motion.a
                     key={id}

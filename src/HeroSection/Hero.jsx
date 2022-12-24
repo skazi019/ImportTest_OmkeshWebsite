@@ -53,23 +53,57 @@ export default function Hero() {
                   }}
                   className='flex flex-col justify-center items-start lg:flex-row lg:justify-between lg:items-end'
                 >
-                  <h1 className='font-header font-semibold text-5xl lg:text-[5rem] lg:w-[90rem] lg:leading-normal'>
+                  <motion.h1
+                    initial={{
+                      y: 30,
+                      opacity: 0,
+                    }}
+                    animate={{
+                      y: 0,
+                      opacity: 1,
+                      transition: {
+                        delay: heroDelay,
+                        duration: 0.3,
+                        type: 'ease',
+                      },
+                    }}
+                    className='font-header font-semibold text-5xl lg:text-[5rem] lg:w-[90rem] leading-normal break-words'
+                  >
                     Jay Shree Krishna Consultants
-                  </h1>
-                  <p className='font-body lg:w-[45rem] font-sans break-words text-left lg:text-right lg:mb-8 mt-10 lg:mt-0'>
+                  </motion.h1>
+                  <motion.p
+                    initial={{
+                      visibility: 'hidden',
+                      opacity: 0,
+                    }}
+                    animate={{
+                      visibility: 'visible',
+                      opacity: 1,
+                      transition: {
+                        delay: heroDelay + 1,
+                        duration: 0.3,
+                        type: 'ease',
+                      },
+                    }}
+                    className='font-body lg:w-[45rem] font-sans break-words text-left lg:text-right lg:mb-8 mt-10 lg:mt-0'
+                  >
                     Lorem ipsum dolor sit amet consectetur. Auctor neque neque
                     magna at faucibus. Quam malesuada sit proin non purus est
                     luctus.
-                  </p>
+                  </motion.p>
                 </motion.div>
                 <motion.p
                   initial={{
                     visibility: 'hidden',
+                    opacity: 0,
                   }}
                   animate={{
                     visibility: 'visible',
+                    opacity: 1,
                     transition: {
-                      delay: heroDelay,
+                      delay: heroDelay + 1,
+                      duration: 0.3,
+                      type: 'ease',
                     },
                   }}
                   className='mt-12 place-self-start'

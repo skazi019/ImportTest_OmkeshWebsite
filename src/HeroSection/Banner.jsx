@@ -137,3 +137,26 @@ const BannerRowCenter = ({ title, playMarquee }) => {
 }
 
 export default Banner
+
+export function WordSlideUp({ text, animDuration, animDelay, yhide }) {
+  return (
+    <span className='overflow-hidden'>
+      <motion.h1
+        initial={{
+          y: yhide,
+        }}
+        animate={{
+          y: 0,
+          transition: {
+            delay: animDelay,
+            duration: animDuration,
+            type: 'ease',
+          },
+        }}
+        className='font-header font-semibold text-5xl lg:text-[5rem] lg:w-[90rem] break-words'
+      >
+        {text}
+      </motion.h1>
+    </span>
+  )
+}
