@@ -102,7 +102,7 @@ export default function Hero() {
                     },
                   }}
                   src={heroImage}
-                  className='aspect-auto object-cover'
+                  className='aspect-auto object-cover max-w-[120rem]'
                 />
               )}
 
