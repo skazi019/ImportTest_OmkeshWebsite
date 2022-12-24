@@ -9,6 +9,7 @@ const links = [
 ]
 
 const SCREENWIDTH = window.innerWidth
+const NAVANIMATIONDURATION = 0.3
 
 export default function DesktopNavbar() {
   const [openNav, setopenNav] = useState(false)
@@ -16,7 +17,7 @@ export default function DesktopNavbar() {
   return (
     <>
       <div className='px-4 md:px-10 lg:mx-auto lg:max-w-6xl w-full pt-12 flex flex-row justify-end items-right'>
-        <button onClick={() => setopenNav(!openNav)}>
+        <button layoutId='nav-button' onClick={() => setopenNav(!openNav)}>
           <svg
             className='w-6 h-6'
             width='36'
@@ -47,22 +48,22 @@ export default function DesktopNavbar() {
               x: 0,
               opacity: 1,
               transition: {
-                duration: 0.3,
-                type: 'ease',
+                duration: NAVANIMATIONDURATION,
+                ease: [0.1, 0.05, 0.1, 0.9],
               },
             }}
             exit={{
               x: SCREENWIDTH,
               opacity: 0,
               transition: {
-                duration: 0.3,
-                type: 'ease',
+                duration: NAVANIMATIONDURATION,
+                ease: [0.9, 0.1, 0.05, 0.1],
               },
             }}
             className='fixed z-10 top-0 left-0 h-screen w-screen bg-red-600'
           >
             <div className='px-4 md:px-10 lg:mx-auto lg:max-w-6xl w-full pt-12 flex flex-row justify-end items-right'>
-              <button className='' onClick={() => setopenNav(!openNav)}>
+              <button layoutId='nav-button' className='' onClick={() => setopenNav(!openNav)}>
                 <svg
                   className='w-6 h-6'
                   width='24'
@@ -82,7 +83,7 @@ export default function DesktopNavbar() {
             </div>
 
             <div className='px-4 md:px-10 lg:mx-auto lg:max-w-6xl w-full '>
-              <motion.div className='h-screen w-fit flex flex-col gap-8 justify-center items-left ml-14'>
+              <motion.div className='h-screen w-fit flex flex-col gap-12 lg:gap-16 justify-center items-left ml-14'>
                 {links.map(({ name, to, id }) => (
                   <motion.a
                     key={id}
