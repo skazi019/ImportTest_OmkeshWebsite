@@ -6,8 +6,8 @@ import DesktopNavbar from '../Navbar/DesktopNav'
 
 export default function Hero() {
   const [loaded, setloaded] = useState(false)
-  const [imageLoaded, setimageLoaded] = useState(true)
   const [mobile, setmobile] = useState(false)
+  const [heroDelay, setHeroDelay] = useState(0)
 
   const interpretViewport = () => {
     // for screen width below 1024px we do not want the Hero Image animation.
@@ -16,23 +16,20 @@ export default function Hero() {
     // tailwind 5xl - 1024px
 
     if (window.innerWidth < 1024) {
+      setHeroDelay(0)
       setmobile(true)
+      setloaded(true)
     } else {
+      setHeroDelay(1.5)
       setmobile(false)
+      setTimeout(() => {
+        setloaded(true)
+      }, 2000)
     }
   }
 
   useEffect(() => {
     interpretViewport()
-
-    // Impove this
-    if (!mobile) {
-      setTimeout(() => {
-        setloaded(true)
-      }, 2000)
-    } else {
-      setloaded(true)
-    }
   }, [window.innerWidth])
 
   return (
@@ -50,23 +47,19 @@ export default function Hero() {
                   animate={{
                     visibility: 'visible',
                     transition: {
-                      delay: 1,
+                      delay: heroDelay,
                     },
                   }}
                   className='flex flex-col justify-center items-start lg:flex-row lg:justify-between lg:items-end'
                 >
-                  {imageLoaded ? (
-                    <>
-                      <h1 className='font-header font-semibold text-5xl lg:text-[5rem] lg:w-[90rem] lg:leading-normal'>
-                        Jay Shree Krishna Consultants
-                      </h1>
-                      <p className='font-body lg:w-[45rem] font-sans break-words text-left lg:text-right lg:mb-8 mt-10 lg:mt-0'>
-                        Lorem ipsum dolor sit amet consectetur. Auctor neque
-                        neque magna at faucibus. Quam malesuada sit proin non
-                        purus est luctus.
-                      </p>
-                    </>
-                  ) : null}
+                  <h1 className='font-header font-semibold text-5xl lg:text-[5rem] lg:w-[90rem] lg:leading-normal'>
+                    Jay Shree Krishna Consultants
+                  </h1>
+                  <p className='font-body lg:w-[45rem] font-sans break-words text-left lg:text-right lg:mb-8 mt-10 lg:mt-0'>
+                    Lorem ipsum dolor sit amet consectetur. Auctor neque neque
+                    magna at faucibus. Quam malesuada sit proin non purus est
+                    luctus.
+                  </p>
                 </motion.div>
                 <motion.p
                   initial={{
@@ -75,7 +68,7 @@ export default function Hero() {
                   animate={{
                     visibility: 'visible',
                     transition: {
-                      delay: 1,
+                      delay: heroDelay,
                     },
                   }}
                   className='mt-12 place-self-start'
@@ -103,8 +96,8 @@ export default function Hero() {
                     width: '100%',
                     height: 720,
                     transition: {
-                      duration: 1.5,
-                      ease: [0.6, 0.01, -0.05, 0.9],
+                      duration: 2,
+                      ease: [0.6, 0.1, -0.05, 0.9],
                     },
                   }}
                   src={heroImage}

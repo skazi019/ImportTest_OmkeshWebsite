@@ -5,7 +5,7 @@ export default function DesktopNavbar() {
 
   return (
     <>
-      <div className=' px-4 md:px-10 lg:mx-auto lg:max-w-6xl w-full pt-12 flex flex-row justify-end items-right'>
+      <div className='px-4 md:px-10 lg:mx-auto lg:max-w-6xl w-full pt-12 flex flex-row justify-end items-right'>
         <button onClick={() => setopenNav(!openNav)}>
           <svg
             className='w-6 h-6'
@@ -27,7 +27,7 @@ export default function DesktopNavbar() {
       {openNav ? (
         <section className='fixed z-10 top-0 left-0 h-screen w-screen bg-red-600'>
           <button
-            className='absolute top-0 right-0 mt-12 mr-44'
+            className='absolute top-0 right-0 mt-12 mr-4 md:mr-10 lg:mr-44'
             onClick={() => setopenNav(!openNav)}
           >
             <svg
@@ -46,11 +46,13 @@ export default function DesktopNavbar() {
               />
             </svg>
           </button>
-          <div className='h-screen flex flex-col gap-8 justify-center items-left ml-14'>
-            <a className='text-7xl'>Home</a>
-            <a className='text-7xl'>Home</a>
-            <a className='text-7xl'>Home</a>
-            <a className='text-7xl'>Home</a>
+          <div className='px-4 md:px-10 lg:mx-auto lg:max-w-6xl w-full '>
+            <div className='h-screen flex flex-col gap-8 justify-center items-left ml-14'>
+              <a className='text-7xl'>Home</a>
+              <a className='text-7xl'>Home</a>
+              <a className='text-7xl'>Home</a>
+              <a className='text-7xl'>Home</a>
+            </div>
           </div>
         </section>
       ) : null}
