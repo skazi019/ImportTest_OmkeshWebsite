@@ -22,6 +22,7 @@ export default function Hero() {
     } else {
       setHeroDelay(1.5)
       setmobile(false)
+      // to make the loader image animate
       setTimeout(() => {
         setloaded(true)
       }, 2000)
@@ -96,7 +97,7 @@ export default function Hero() {
                     width: '100%',
                     height: 720,
                     transition: {
-                      duration: 2,
+                      duration: heroDelay,
                       ease: [0.6, 0.1, -0.05, 0.9],
                     },
                   }}

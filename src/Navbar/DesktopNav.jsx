@@ -1,4 +1,14 @@
 import { useState } from 'react'
+import { motion, AnimatePresence } from 'framer-motion'
+
+const links = [
+  { name: 'Home', to: '#', id: 1 },
+  { name: 'About', to: '#', id: 2 },
+  { name: 'Blog', to: '#', id: 3 },
+  { name: 'Contact', to: '#', id: 4 },
+]
+
+const SCREENWIDTH = window.innerWidth
 
 export default function DesktopNavbar() {
   const [openNav, setopenNav] = useState(false)
@@ -24,38 +34,70 @@ export default function DesktopNavbar() {
           </svg>
         </button>
       </div>
-      {openNav ? (
-        <section className='fixed z-10 top-0 left-0 h-screen w-screen bg-red-600'>
-          <button
-            className='absolute top-0 right-0 mt-12 mr-4 md:mr-10 lg:mr-44'
-            onClick={() => setopenNav(!openNav)}
+
+      <AnimatePresence>
+        {openNav ? (
+          <motion.section
+            key='navbar'
+            initial={{
+              x: SCREENWIDTH,
+              opacity: 0,
+            }}
+            animate={{
+              x: 0,
+              opacity: 1,
+              transition: {
+                duration: 0.3,
+                type: 'ease',
+              },
+            }}
+            exit={{
+              x: SCREENWIDTH,
+              opacity: 0,
+              transition: {
+                duration: 0.3,
+                type: 'ease',
+              },
+            }}
+            className='fixed z-10 top-0 left-0 h-screen w-screen bg-red-600'
           >
-            <svg
-              className='w-6 h-6'
-              width='24'
-              height='24'
-              viewBox='0 0 24 24'
-              fill='none'
-              xmlns='http://www.w3.org/2000/svg'
-            >
-              <path
-                fillRule='evenodd'
-                clipRule='evenodd'
-                d='M23.4219 2.0886C23.521 1.98942 23.5997 1.87168 23.6534 1.74211C23.7071 1.61253 23.7347 1.47365 23.7347 1.33339C23.7347 1.19314 23.7071 1.05426 23.6534 0.924684C23.5997 0.795106 23.521 0.677369 23.4219 0.578195C23.3227 0.47902 23.205 0.400351 23.0754 0.346679C22.9458 0.293006 22.8069 0.265381 22.6667 0.265381C22.5264 0.265381 22.3875 0.293006 22.258 0.346679C22.1284 0.400351 22.0106 0.47902 21.9115 0.578195L12 10.4918L2.08853 0.578195C1.98936 0.47902 1.87162 0.400351 1.74205 0.346679C1.61247 0.293006 1.47359 0.265381 1.33333 0.265381C1.19308 0.265381 1.0542 0.293006 0.924623 0.346679C0.795045 0.400351 0.677308 0.47902 0.578134 0.578195C0.478959 0.677369 0.40029 0.795106 0.346618 0.924684C0.292945 1.05426 0.26532 1.19314 0.26532 1.33339C0.26532 1.47365 0.292945 1.61253 0.346618 1.74211C0.40029 1.87168 0.478959 1.98942 0.578134 2.0886L10.4917 12.0001L0.578134 21.9115C0.377842 22.1118 0.26532 22.3835 0.26532 22.6667C0.26532 22.95 0.377842 23.2216 0.578134 23.4219C0.778425 23.6222 1.05008 23.7347 1.33333 23.7347C1.61659 23.7347 1.88824 23.6222 2.08853 23.4219L12 13.5083L21.9115 23.4219C22.1118 23.6222 22.3834 23.7347 22.6667 23.7347C22.9499 23.7347 23.2216 23.6222 23.4219 23.4219C23.6222 23.2216 23.7347 22.95 23.7347 22.6667C23.7347 22.3835 23.6222 22.1118 23.4219 21.9115L13.5083 12.0001L23.4219 2.0886Z'
-                fill='#FCFCFC'
-              />
-            </svg>
-          </button>
-          <div className='px-4 md:px-10 lg:mx-auto lg:max-w-6xl w-full '>
-            <div className='h-screen flex flex-col gap-8 justify-center items-left ml-14'>
-              <a className='text-7xl'>Home</a>
-              <a className='text-7xl'>Home</a>
-              <a className='text-7xl'>Home</a>
-              <a className='text-7xl'>Home</a>
+            <div className='px-4 md:px-10 lg:mx-auto lg:max-w-6xl w-full pt-12 flex flex-row justify-end items-right'>
+              <button className='' onClick={() => setopenNav(!openNav)}>
+                <svg
+                  className='w-6 h-6'
+                  width='24'
+                  height='24'
+                  viewBox='0 0 24 24'
+                  fill='none'
+                  xmlns='http://www.w3.org/2000/svg'
+                >
+                  <path
+                    fillRule='evenodd'
+                    clipRule='evenodd'
+                    d='M23.4219 2.0886C23.521 1.98942 23.5997 1.87168 23.6534 1.74211C23.7071 1.61253 23.7347 1.47365 23.7347 1.33339C23.7347 1.19314 23.7071 1.05426 23.6534 0.924684C23.5997 0.795106 23.521 0.677369 23.4219 0.578195C23.3227 0.47902 23.205 0.400351 23.0754 0.346679C22.9458 0.293006 22.8069 0.265381 22.6667 0.265381C22.5264 0.265381 22.3875 0.293006 22.258 0.346679C22.1284 0.400351 22.0106 0.47902 21.9115 0.578195L12 10.4918L2.08853 0.578195C1.98936 0.47902 1.87162 0.400351 1.74205 0.346679C1.61247 0.293006 1.47359 0.265381 1.33333 0.265381C1.19308 0.265381 1.0542 0.293006 0.924623 0.346679C0.795045 0.400351 0.677308 0.47902 0.578134 0.578195C0.478959 0.677369 0.40029 0.795106 0.346618 0.924684C0.292945 1.05426 0.26532 1.19314 0.26532 1.33339C0.26532 1.47365 0.292945 1.61253 0.346618 1.74211C0.40029 1.87168 0.478959 1.98942 0.578134 2.0886L10.4917 12.0001L0.578134 21.9115C0.377842 22.1118 0.26532 22.3835 0.26532 22.6667C0.26532 22.95 0.377842 23.2216 0.578134 23.4219C0.778425 23.6222 1.05008 23.7347 1.33333 23.7347C1.61659 23.7347 1.88824 23.6222 2.08853 23.4219L12 13.5083L21.9115 23.4219C22.1118 23.6222 22.3834 23.7347 22.6667 23.7347C22.9499 23.7347 23.2216 23.6222 23.4219 23.4219C23.6222 23.2216 23.7347 22.95 23.7347 22.6667C23.7347 22.3835 23.6222 22.1118 23.4219 21.9115L13.5083 12.0001L23.4219 2.0886Z'
+                    fill='#FCFCFC'
+                  />
+                </svg>
+              </button>
             </div>
-          </div>
-        </section>
-      ) : null}
+
+            <div className='px-4 md:px-10 lg:mx-auto lg:max-w-6xl w-full '>
+              <motion.div className='h-screen w-fit flex flex-col gap-8 justify-center items-left ml-14'>
+                {links.map(({ name, to, id }) => (
+                  <motion.a
+                    key={id}
+                    href={to}
+                    whileHover={{ scale: 1.1 }}
+                    className='text-5xl md:text-7xl'
+                  >
+                    {name}
+                  </motion.a>
+                ))}
+              </motion.div>
+            </div>
+          </motion.section>
+        ) : null}
+      </AnimatePresence>
     </>
   )
 }
