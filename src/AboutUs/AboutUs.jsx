@@ -1,35 +1,7 @@
-import React, { useEffect, useState } from 'react'
-import { motion, AnimatePresence } from 'framer-motion'
 import Metric from './Metric'
+import aboutUsDivider from '../assets/aboutus_divider_2.png'
 
 export default function AboutUs() {
-  const [loaded, setloaded] = useState(false)
-  const [mobile, setmobile] = useState(false)
-  const [heroDelay, setHeroDelay] = useState(0)
-
-  const interpretViewport = () => {
-    // for screen width below 1024px we do not want the Hero Image animation.
-    // So we check the screen width and accordingly show either the motion.img
-    // or just img tag
-    // tailwind 5xl - 1024px
-    // if (window.innerWidth < 1024) {
-    //   setHeroDelay(0)
-    //   setmobile(true)
-    //   setloaded(true)
-    // } else {
-    //   setHeroDelay(1.5)
-    //   setmobile(false)
-    //   // to make the loader image animate
-    //   setTimeout(() => {
-    //     setloaded(true)
-    //   }, 2000)
-    // }
-  }
-
-  useEffect(() => {
-    interpretViewport()
-  }, [window.innerWidth])
-
   return (
     <>
       <section className='mt-32 lg:mt-60 h-auto w-screen w-full px-4 md:px-10 lg:mx-auto lg:max-w-6xl'>
@@ -48,7 +20,11 @@ export default function AboutUs() {
             <div className='flex flex-col gap-24 justify-center items-center'>
               <div className='flex flex-row gap-24 justify-center items-center'>
                 <Metric number={50} text={'Designs made'} addPlus={true} />
-                <Metric number={38} text={'Projects Delivered'} addPlus={true} />
+                <Metric
+                  number={38}
+                  text={'Projects Delivered'}
+                  addPlus={true}
+                />
               </div>
               <div className='flex flex-row gap-24 justify-center items-center'>
                 <Metric number={15} text={'Clients Impacted'} addPlus={true} />
@@ -58,6 +34,8 @@ export default function AboutUs() {
           </div>
         </div>
       </section>
+      <img src={aboutUsDivider} className='mt-32 object-cover aspect-auto saturate-50' />
+        <div className='h-screen'></div>
     </>
   )
 }
