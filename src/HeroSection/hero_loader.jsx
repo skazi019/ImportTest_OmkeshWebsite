@@ -1,7 +1,11 @@
+import React, { useEffect } from 'react'
 import heroImage from '../assets/hero_image.png'
 import { motion } from 'framer-motion'
 
 export default function HeroLoader() {
+  useEffect(() => {
+    window.scrollTo({ top: 0, left: 0 })
+  }, [])
   return (
     <div className='w-screen h-screen flex flex-col justify-center items-center'>
       <motion.img

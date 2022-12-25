@@ -34,8 +34,7 @@ export default function AboutUs() {
           </div>
         </div>
       </section>
-      <img src={aboutUsDivider} className='mt-32 object-cover aspect-auto saturate-50' />
-        <div className='h-screen'></div>
+      <img src={aboutUsDivider} className='mt-36 object-cover aspect-auto saturate-50' />
     </>
   )
 }
