@@ -85,7 +85,7 @@ export default function Hero() {
                         type: 'ease',
                       },
                     }}
-                    className='font-body lg:w-[45rem] font-sans break-words text-left lg:text-right lg:mb-8 mt-10 lg:mt-0'
+                    className='font-body lg:w-[45rem] font-sans break-words tracking-wide text-left lg:text-right lg:mb-8 mt-10 lg:mt-0'
                   >
                     Lorem ipsum dolor sit amet consectetur. Auctor neque neque
                     magna at faucibus. Quam malesuada sit proin non purus est
@@ -139,8 +139,6 @@ export default function Hero() {
                   className='aspect-auto object-cover max-w-[120rem]'
                 />
               )}
-
-              <div className='h-screen'></div>
             </div>
           </>
         ) : (
