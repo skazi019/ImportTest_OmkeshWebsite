@@ -18,7 +18,6 @@ export default function DesktopNavbar() {
     <>
       <div className='px-4 md:px-10 lg:mx-auto lg:max-w-6xl w-full pt-12 flex flex-row justify-end items-right'>
         <button
-          layoutId='nav-button'
           className='fixed'
           onClick={() => setopenNav(!openNav)}
         >
@@ -68,7 +67,6 @@ export default function DesktopNavbar() {
           >
             <div className='px-4 md:px-10 lg:mx-auto lg:max-w-6xl w-full pt-12 flex flex-row justify-end items-right'>
               <button
-                layoutId='nav-button'
                 className=''
                 onClick={() => setopenNav(!openNav)}
               >
