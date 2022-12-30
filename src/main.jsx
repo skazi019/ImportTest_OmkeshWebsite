@@ -5,6 +5,7 @@ import AboutUs from './AboutUs/AboutUs.jsx'
 import Principles from './Principles/Principles.jsx'
 import Founders from './Founders/Founders'
 import Partners from './Partners/Partners'
+import Contact from './Contact/Contact'
 import './index.css'
 
 window.onbeforeunload = () => {
@@ -21,6 +22,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
       <Principles />
       <Founders />
       <Partners />
+      <Contact />
     </main>
   </React.StrictMode>
 )

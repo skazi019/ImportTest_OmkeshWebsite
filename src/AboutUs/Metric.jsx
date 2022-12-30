@@ -5,14 +5,14 @@ export default function Metric({ number, text, addPlus }) {
         {addPlus ? (
           <>
             {number}
-            <span className="text-red-600">+</span>
+            <span className="text-accent-red">+</span>
           </>
         ) : (
           number
         )}
       </p>
       <div className='h-[0.1px] w-full mt-1 bg-white'></div>
-      <p className='w-20 mt-1 font-body text-center break-words'>{text}</p>
+      <p className='w-20 mt-1 font-body text-accent-gray text-center break-words'>{text}</p>
     </div>
   )
 }

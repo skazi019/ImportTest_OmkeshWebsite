@@ -10,7 +10,7 @@ export default function AboutUs() {
             About Us
           </h1>
           <div className='lg:w-1/2 flex flex-col gap-28 justify-center items-center'>
-            <p className='mt-3 font-body text-left tracking-wide'>
+            <p className='mt-3 font-body text-accent-gray text-left tracking-wide'>
               Lorem ipsum dolor sit amet consectetur. Sed faucibus at vitae
               lobortis neque morbi ultrices pellentesque mauris. Cras porta
               porttitor maecenas arcu tincidunt. Nibh vestibulum consectetur at
@@ -19,7 +19,7 @@ export default function AboutUs() {
             </p>
             <div className='flex flex-col gap-24 justify-center items-center'>
               <div className='flex flex-row gap-24 justify-center items-center'>
-                <Metric number={50} text={'Designs made'} addPlus={true} />
+                <Metric number={50} text={'Designs Completed'} addPlus={true} />
                 <Metric
                   number={38}
                   text={'Projects Delivered'}

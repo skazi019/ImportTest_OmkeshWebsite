@@ -18,7 +18,6 @@ export default function Partners() {
             <img src={galileoLogo} className='w-32' />
         </div>
       </section>
-      <div className='h-screen'></div>
     </>
   )
 }

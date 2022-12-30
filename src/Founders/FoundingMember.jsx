@@ -30,7 +30,7 @@ export default function FoundingMember({
       <img src={image} className='' />
       <div className='absolute left-4 bottom-8'>
         <h1 className='font-header text-5xl'>{name}</h1>
-        <p className={mobile ? 'block mt-4' : 'hidden group-hover:block mt-4'}>
+        <p className={mobile ? 'block mt-4' : 'hidden text-accent-gray group-hover:block mt-4'}>
           Lorem ipsum dolor sit amet consectetur. Sed faucibus at vitae lobortis
           neque morbi ultrices pellentesque mauris.
         </p>

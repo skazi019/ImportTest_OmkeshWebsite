@@ -9,7 +9,7 @@ export default function Founders() {
         <h1 className='font-header font-semibold text-5xl leading-normal break-words'>
           Our Founders
         </h1>
-            <div className="mt-14 flex flex-col lg:flex-row gap-2 justify-start items-start">
+            <div className="mt-14 flex flex-col lg:flex-row gap-10 lg:gap-2 justify-center lg:justify-start items-center lg:items-start">
                 <FoundingMember name={'Lorem Ipsum'} image={founder1Image} extraClasses={'lg:w-1/2'} />
                 <FoundingMember name={'Lorem Ipsum'} image={founder2Image} extraClasses={'lg:w-1/2'}/>
             </div>
