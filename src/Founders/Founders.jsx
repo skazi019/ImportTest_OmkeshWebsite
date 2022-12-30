@@ -14,7 +14,6 @@ export default function Founders() {
                 <FoundingMember name={'Lorem Ipsum'} image={founder2Image} extraClasses={'lg:w-1/2'}/>
             </div>
       </section>
-      <div className='h-screen'></div>
     </>
   )
 }
