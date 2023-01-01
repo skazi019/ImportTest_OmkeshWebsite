@@ -4,12 +4,12 @@ import { motion, AnimatePresence } from 'framer-motion'
 const links = [
   { name: 'Home', to: '#', id: 1 },
   { name: 'About', to: '#', id: 2 },
-  { name: 'Blog', to: '#', id: 3 },
+  { name: 'Founders', to: '#', id: 3 },
   { name: 'Contact', to: '#', id: 4 },
 ]
 
 const SCREENWIDTH = window.innerWidth
-const NAVANIMATIONDURATION = 0.3
+const NAVANIMATIONDURATION = 0.2
 
 export default function DesktopNavbar() {
   const [openNav, setopenNav] = useState(false)

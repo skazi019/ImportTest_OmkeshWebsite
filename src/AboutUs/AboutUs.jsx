@@ -1,3 +1,4 @@
+import { motion } from 'framer-motion'
 import Metric from './Metric'
 import aboutUsDivider from '../assets/aboutus_divider_2.png'
 
@@ -34,7 +35,14 @@ export default function AboutUs() {
           </div>
         </div>
       </section>
-      <img src={aboutUsDivider} className='mt-36 object-cover w-full max-w-[120rem] aspect-auto saturate-50' />
+      <motion.img
+        initial={{
+          width: '100%',
+          height: 720,
+        }}
+        src={aboutUsDivider}
+        className='mt-36 object-cover max-w-[120rem] mx-auto aspect-auto saturate-50'
+      />
     </>
   )
 }

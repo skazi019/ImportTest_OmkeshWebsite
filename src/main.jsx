@@ -8,6 +8,7 @@ import Partners from './Partners/Partners'
 import Contact from './Contact/Contact'
 import './index.css'
 
+// Scolling to the top so that the hero image animation is shown
 window.onbeforeunload = () => {
   if (window.innerWidth > 1024) {
     window.scrollTo({ top: 0 })
