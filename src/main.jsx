@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom/client'
 import Hero from './HeroSection/Hero'
 import AboutUs from './AboutUs/AboutUs.jsx'
 import Principles from './Principles/Principles.jsx'
+import Gallery from './Gallery/Gallery'
 import Founders from './Founders/Founders'
 import Partners from './Partners/Partners'
 import Contact from './Contact/Contact'
@@ -21,6 +22,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
       <Hero />
       <AboutUs />
       <Principles />
+      <Gallery />
       <Founders />
       <Partners />
       <Contact />
