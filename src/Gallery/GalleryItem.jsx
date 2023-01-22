@@ -1,7 +1,9 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 
 export default function GalleryItem({ description, imageURL }) {
+  const [loaded, setLoaded] = useState(false)
+
   return (
     <AnimatePresence>
       <motion.div
@@ -31,7 +33,12 @@ export default function GalleryItem({ description, imageURL }) {
         <p className='font-body text-lg tracking-wide text-accent-gray'>
           {description}
         </p>
-        <img src={imageURL} className='mt-10 w-full h-auto lg:h-[32rem] object-cover rounded' />
+        {!loaded && <p>loading...</p>}
+        <img
+          src={imageURL}
+          onLoad={() => setLoaded(true)}
+          className='mt-10 w-full h-auto lg:h-[32rem] object-cover rounded'
+        />
       </motion.div>
     </AnimatePresence>
   )
