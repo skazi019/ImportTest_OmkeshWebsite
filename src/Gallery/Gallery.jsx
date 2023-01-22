@@ -13,7 +13,7 @@ export default function Gallery() {
     console.log('Setting animate to true')
     setTimeout(() => {
       setFunc(false)
-    }, 1000)
+    }, 250)
     console.log('Setting animate to false')
   }
 

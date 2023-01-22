@@ -122,7 +122,7 @@ export default function Hero() {
                 <motion.img
                   layoutId='main-image-1'
                   initial={{
-                    y: 0,
+                    y: -100, // -100 look great, -300 gives proper animation
                     width: 720,
                     height: 480,
                   }}

@@ -2,8 +2,8 @@
 ---
 
 ### Requirements
-- Nav button fixed, obstructs when using gallery buttons
 - Serif font not exactly similar to that in figma or in google fonts. Probably some issue with path or the location of assests
+- ~~Nav button fixed, obstructs when using gallery buttons~~
 - ~~Gallery buttons to have animation on click~~
 - ~~Gallery section~~
 
