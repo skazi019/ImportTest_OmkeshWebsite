@@ -2,7 +2,9 @@
 ---
 
 ### Requirements
+- Either show image placeholder or show a loader for the Gallery images
 - Serif font not exactly similar to that in figma or in google fonts. Probably some issue with path or the location of assests
+- ~~About us divider image looks weird on small screens~~
 - ~~Nav button fixed, obstructs when using gallery buttons~~
 - ~~Gallery buttons to have animation on click~~
 - ~~Gallery section~~

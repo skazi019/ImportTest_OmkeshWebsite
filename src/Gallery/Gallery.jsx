@@ -10,11 +10,9 @@ export default function Gallery() {
 
   const animateGalleryButton = (setFunc) => {
     setFunc(true)
-    console.log('Setting animate to true')
     setTimeout(() => {
       setFunc(false)
     }, 250)
-    console.log('Setting animate to false')
   }
 
   const nextImage = () => {

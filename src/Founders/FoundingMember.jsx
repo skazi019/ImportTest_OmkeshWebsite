@@ -30,10 +30,18 @@ export default function FoundingMember({
       <img src={image} className='' />
       <div className='absolute left-4 bottom-8'>
         <h1 className='font-header text-5xl'>{name}</h1>
-        <p className={mobile ? 'block mt-4' : 'hidden text-accent-gray group-hover:block mt-4'}>
+        <motion.p
+          animate={{
+            transition: {
+              duration: 0.5,
+            },
+          }}
+          className={`mt-4 transform transition-all duration-300 ease-in-out text-accent-gray
+            ${mobile ? 'block' : 'hidden group-hover:block'}`}
+        >
           Lorem ipsum dolor sit amet consectetur. Sed faucibus at vitae lobortis
           neque morbi ultrices pellentesque mauris.
-        </p>
+        </motion.p>
       </div>
     </div>
   )

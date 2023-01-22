@@ -31,7 +31,7 @@ export default function GalleryItem({ description, imageURL }) {
         <p className='font-body text-lg tracking-wide text-accent-gray'>
           {description}
         </p>
-        <img src={imageURL} className='mt-10 w-full h-[32rem] object-cover' />
+        <img src={imageURL} className='mt-10 w-full h-auto lg:h-[32rem] object-cover rounded' />
       </motion.div>
     </AnimatePresence>
   )
