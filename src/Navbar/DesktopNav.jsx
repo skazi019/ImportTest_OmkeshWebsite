@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
+import Headroom from 'react-headroom'
 
 const links = [
   { name: 'Home', to: '#', id: 1 },
@@ -13,48 +14,30 @@ const NAVANIMATIONDURATION = 0.2
 
 export default function DesktopNavbar() {
   const [openNav, setopenNav] = useState(false)
-  const [hideNav, setHideNav] = useState(false)
-
-  let prevScrollpos = window.pageYOffset
-
-  window.onscroll = () => {
-    var currentScrollPos = window.pageYOffset
-    console.log(
-      `prev scroll: ${prevScrollpos} | current scroll: ${currentScrollPos}`
-    )
-    if (prevScrollpos > currentScrollPos) {
-      setHideNav(false)
-    } else {
-      setHideNav(true)
-    }
-    prevScrollpos = currentScrollPos
-  }
 
   return (
     <>
-      <div
-        className={`transition px-4 md:px-10 lg:mx-auto lg:max-w-6xl w-full pt-12 flex flex-row justify-end items-right ${
-          hideNav ? 'hidden' : 'block'
-        }`}
-      >
-        <button className='fixed' onClick={() => setopenNav(!openNav)}>
-          <svg
-            className='w-6 h-6'
-            width='36'
-            height='24'
-            viewBox='0 0 36 24'
-            fill='none'
-            xmlns='http://www.w3.org/2000/svg'
-          >
-            <path
-              fillRule='evenodd'
-              clipRule='evenodd'
-              d='M36 22.5C36 22.8978 35.842 23.2794 35.5607 23.5607C35.2794 23.842 34.8978 24 34.5 24L1.5 24C1.10218 24 0.720643 23.842 0.439339 23.5607C0.158034 23.2794 0 22.8978 0 22.5C0 22.1022 0.158034 21.7206 0.439339 21.4393C0.720643 21.158 1.10218 21 1.5 21L34.5 21C34.8978 21 35.2794 21.158 35.5607 21.4393C35.842 21.7206 36 22.1022 36 22.5ZM36 12C36 12.3978 35.842 12.7794 35.5607 13.0607C35.2794 13.342 34.8978 13.5 34.5 13.5L18 13.5C17.6022 13.5 17.2206 13.342 16.9393 13.0607C16.658 12.7794 16.5 12.3978 16.5 12C16.5 11.6022 16.658 11.2206 16.9393 10.9393C17.2206 10.658 17.6022 10.5 18 10.5L34.5 10.5C34.8978 10.5 35.2794 10.658 35.5607 10.9393C35.842 11.2206 36 11.6022 36 12ZM36 1.5C36 1.89782 35.842 2.27936 35.5607 2.56066C35.2794 2.84197 34.8978 3 34.5 3L1.5 3C1.10218 3 0.720643 2.84197 0.439339 2.56066C0.158034 2.27936 0 1.89782 0 1.5C0 1.10218 0.158034 0.720643 0.439339 0.439339C0.720643 0.158034 1.10218 0 1.5 0L34.5 0C34.8978 0 35.2794 0.158034 35.5607 0.439339C35.842 0.720643 36 1.10218 36 1.5Z'
-              fill='white'
-            />
-          </svg>
-        </button>
-      </div>
+      <Headroom>
+        <div className='transition px-4 md:px-10 lg:mx-auto lg:max-w-6xl w-full pt-12 flex flex-row justify-end items-right'>
+          <button className='' onClick={() => setopenNav(!openNav)}>
+            <svg
+              className='w-6 h-6'
+              width='36'
+              height='24'
+              viewBox='0 0 36 24'
+              fill='none'
+              xmlns='http://www.w3.org/2000/svg'
+            >
+              <path
+                fillRule='evenodd'
+                clipRule='evenodd'
+                d='M36 22.5C36 22.8978 35.842 23.2794 35.5607 23.5607C35.2794 23.842 34.8978 24 34.5 24L1.5 24C1.10218 24 0.720643 23.842 0.439339 23.5607C0.158034 23.2794 0 22.8978 0 22.5C0 22.1022 0.158034 21.7206 0.439339 21.4393C0.720643 21.158 1.10218 21 1.5 21L34.5 21C34.8978 21 35.2794 21.158 35.5607 21.4393C35.842 21.7206 36 22.1022 36 22.5ZM36 12C36 12.3978 35.842 12.7794 35.5607 13.0607C35.2794 13.342 34.8978 13.5 34.5 13.5L18 13.5C17.6022 13.5 17.2206 13.342 16.9393 13.0607C16.658 12.7794 16.5 12.3978 16.5 12C16.5 11.6022 16.658 11.2206 16.9393 10.9393C17.2206 10.658 17.6022 10.5 18 10.5L34.5 10.5C34.8978 10.5 35.2794 10.658 35.5607 10.9393C35.842 11.2206 36 11.6022 36 12ZM36 1.5C36 1.89782 35.842 2.27936 35.5607 2.56066C35.2794 2.84197 34.8978 3 34.5 3L1.5 3C1.10218 3 0.720643 2.84197 0.439339 2.56066C0.158034 2.27936 0 1.89782 0 1.5C0 1.10218 0.158034 0.720643 0.439339 0.439339C0.720643 0.158034 1.10218 0 1.5 0L34.5 0C34.8978 0 35.2794 0.158034 35.5607 0.439339C35.842 0.720643 36 1.10218 36 1.5Z'
+                fill='white'
+              />
+            </svg>
+          </button>
+        </div>
+      </Headroom>
 
       <AnimatePresence>
         {openNav ? (
