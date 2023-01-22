@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 
 const links = [
@@ -13,14 +13,31 @@ const NAVANIMATIONDURATION = 0.2
 
 export default function DesktopNavbar() {
   const [openNav, setopenNav] = useState(false)
+  const [hideNav, setHideNav] = useState(false)
+
+  let prevScrollpos = window.pageYOffset
+
+  window.onscroll = () => {
+    var currentScrollPos = window.pageYOffset
+    console.log(
+      `prev scroll: ${prevScrollpos} | current scroll: ${currentScrollPos}`
+    )
+    if (prevScrollpos > currentScrollPos) {
+      setHideNav(false)
+    } else {
+      setHideNav(true)
+    }
+    prevScrollpos = currentScrollPos
+  }
 
   return (
     <>
-      <div className='px-4 md:px-10 lg:mx-auto lg:max-w-6xl w-full pt-12 flex flex-row justify-end items-right'>
-        <button
-          className='fixed'
-          onClick={() => setopenNav(!openNav)}
-        >
+      <div
+        className={`transition px-4 md:px-10 lg:mx-auto lg:max-w-6xl w-full pt-12 flex flex-row justify-end items-right ${
+          hideNav ? 'hidden' : 'block'
+        }`}
+      >
+        <button className='fixed' onClick={() => setopenNav(!openNav)}>
           <svg
             className='w-6 h-6'
             width='36'
@@ -66,10 +83,7 @@ export default function DesktopNavbar() {
             className='fixed z-10 top-0 left-0 h-screen w-screen bg-red-600'
           >
             <div className='px-4 md:px-10 lg:mx-auto lg:max-w-6xl w-full pt-12 flex flex-row justify-end items-right'>
-              <button
-                className=''
-                onClick={() => setopenNav(!openNav)}
-              >
+              <button className='' onClick={() => setopenNav(!openNav)}>
                 <svg
                   className='w-6 h-6'
                   width='24'
