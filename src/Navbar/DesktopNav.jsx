@@ -91,8 +91,7 @@ export default function DesktopNavbar() {
                   <motion.a
                     key={id}
                     href={to}
-                    whileHover={{ scale: 1.1 }}
-                    className='text-5xl md:text-7xl'
+                    className='text-5xl md:text-7xl duration-300 ease-in-out lg:hover:translate-x-4 lg:hover:border-l-4 lg:hover:pl-4'
                   >
                     {name}
                   </motion.a>
