@@ -18,7 +18,7 @@ export default function Hero() {
     if (window.innerWidth < 1024) {
       setHeroDelay(0)
       setmobile(true)
-      // setloaded(true)
+      setloaded(true)
     } else {
       setmobile(false)
       setTimeout(() => {
