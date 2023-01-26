@@ -18,14 +18,13 @@ export default function Hero() {
     if (window.innerWidth < 1024) {
       setHeroDelay(0)
       setmobile(true)
-      setloaded(true)
+      // setloaded(true)
     } else {
-      setHeroDelay(1.5)
       setmobile(false)
-      // to make the loader image animate
       setTimeout(() => {
         setloaded(true)
       }, 2000)
+      setHeroDelay(1.5)
     }
   }
 
@@ -142,7 +141,7 @@ export default function Hero() {
             </div>
           </>
         ) : (
-          <HeroLoader />
+          <HeroLoader setImageLoaded={setloaded} />
         )}
       </AnimatePresence>
     </>

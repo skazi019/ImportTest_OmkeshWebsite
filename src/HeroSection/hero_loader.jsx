@@ -2,7 +2,7 @@ import React, { useEffect } from 'react'
 import heroImage from '../assets/hero_image.png'
 import { motion } from 'framer-motion'
 
-export default function HeroLoader() {
+export default function HeroLoader({ setImageLoaded }) {
   return (
     <div className='w-screen h-screen flex flex-col justify-center items-center'>
       <motion.img
@@ -23,6 +23,7 @@ export default function HeroLoader() {
         width='720px'
         height='640px'
         className='hidden lg:block aspect-auto object-cover'
+        // onLoad={() => setImageLoaded(true)}
       />
     </div>
   )
