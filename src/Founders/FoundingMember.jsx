@@ -8,6 +8,8 @@ export default function FoundingMember({
   extraClasses,
 }) {
   const [mobile, setmobile] = useState(false)
+  const [showDes, setShowDes] = useState(false)
+
   const interpretViewport = () => {
     // for screen width below 1024px we do not want the Hero Image animation.
     // So we check the screen width and accordingly show either the motion.img
@@ -27,7 +29,7 @@ export default function FoundingMember({
 
   return (
     <div className={`group relative ${extraClasses}`}>
-      <img src={image} className='' />
+      <img src={image} onMouseEnter={() => setShowDes(true)} onMouseLeave={() => setShowDes(false)}/>
       <div className='absolute left-4 bottom-8'>
         <h1 className='font-header text-5xl'>{name}</h1>
         <motion.p
@@ -36,11 +38,14 @@ export default function FoundingMember({
               duration: 0.5,
             },
           }}
-          className={`mt-4 transform transition-all duration-300 ease-in-out text-accent-gray
-            ${mobile ? 'block' : 'hidden group-hover:block'}`}
+          className={`mt-4 text-accent-gray
+            ${
+              mobile
+                ? 'block'
+                : 'hidden opacity-0 group-hover:block group-hover:opacity-100 duration-300'
+            }`}
         >
-          Lorem ipsum dolor sit amet consectetur. Sed faucibus at vitae lobortis
-          neque morbi ultrices pellentesque mauris.
+          {description}
         </motion.p>
       </div>
     </div>
