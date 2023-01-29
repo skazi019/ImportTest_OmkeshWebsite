@@ -38,7 +38,7 @@ const Banner = () => {
   )
 }
 
-const AnimatedLetters = ({ title, disabled }) => (
+export const AnimatedLetters = ({ title, disabled }) => (
   <motion.span
     className='row-title'
     variants={disabled ? null : banner}
@@ -56,7 +56,7 @@ const AnimatedLetters = ({ title, disabled }) => (
   </motion.span>
 )
 
-const BannerRowTop = ({ title }) => {
+export const BannerRowTop = ({ title }) => {
   return (
     <div className={'banner-row'}>
       <div className='row-col'>

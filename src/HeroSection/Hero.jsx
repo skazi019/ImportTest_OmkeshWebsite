@@ -3,6 +3,7 @@ import HeroLoader from './hero_loader'
 import { motion, AnimatePresence } from 'framer-motion'
 import heroImage from '../assets/hero_image.png'
 import DesktopNavbar from '../Navbar/DesktopNav'
+import { WordAnimation, LetterAnimation } from './AnimatedCharacters'
 
 export default function Hero() {
   const [loaded, setloaded] = useState(false)
@@ -52,24 +53,25 @@ export default function Hero() {
                   }}
                   className='flex flex-col justify-center items-start lg:flex-row lg:justify-between lg:items-end'
                 >
-                  <motion.h1
+                  <motion.div
                     initial={{
-                      y: 30,
                       opacity: 0,
                     }}
                     animate={{
-                      y: 0,
                       opacity: 1,
                       transition: {
                         delay: heroDelay,
-                        duration: 0.3,
-                        type: 'ease',
+                        staggerChildren: 1,
                       },
                     }}
-                    className='font-header font-semibold text-5xl lg:text-[5rem] lg:w-[90rem] leading-normal break-words'
+                    className='flex flex-row flex-wrap gap-2 font-header font-semibold text-5xl lg:text-[5rem] lg:w-[90rem] leading-normal break-words'
                   >
-                    Jay Shree Krishna Consultants
-                  </motion.h1>
+                    {'Jay Shree Krishna Consultants'
+                      .split(' ')
+                      .map((word, index) => (
+                        <LetterAnimation text={word} />
+                      ))}
+                  </motion.div>
                   <motion.p
                     initial={{
                       visibility: 'hidden',
