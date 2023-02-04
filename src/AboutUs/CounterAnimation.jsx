@@ -17,5 +17,5 @@ export default function Counter({ from, to }) {
     return () => controls.stop()
   }, [from, to])
 
-  return <p ref={nodeRef} />
+  return <span ref={nodeRef} />
 }
