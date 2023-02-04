@@ -1,8 +1,12 @@
 import { motion } from 'framer-motion'
 import Metric from './Metric'
 import aboutUsDivider from '../assets/aboutus_divider_2.png'
+import { useInView } from 'react-intersection-observer'
 
 export default function AboutUs() {
+  const [nodeRefFirst, inViewFirst] = useInView()
+  const [nodeRefSecond, inViewSecond] = useInView()
+
   return (
     <>
       <section className='mt-32 lg:mt-60 h-auto w-screen w-full px-4 md:px-10 lg:mx-auto lg:max-w-6xl'>
@@ -19,17 +23,39 @@ export default function AboutUs() {
               at.
             </p>
             <div className='flex flex-col gap-24 justify-center items-center'>
-              <div className='flex flex-row gap-24 justify-center items-center'>
-                <Metric number={50} text={'Designs Completed'} addPlus={true} />
-                <Metric
-                  number={38}
-                  text={'Projects Delivered'}
-                  addPlus={true}
-                />
+              <div
+                ref={nodeRefFirst}
+                className='flex flex-row gap-24 justify-center items-center'
+              >
+                {inViewFirst ? (
+                  <>
+                    <Metric
+                      number={50}
+                      text={'Designs Completed'}
+                      addPlus={true}
+                    />
+                    <Metric
+                      number={38}
+                      text={'Projects Delivered'}
+                      addPlus={true}
+                    />
+                  </>
+                ) : null}
               </div>
-              <div className='flex flex-row gap-24 justify-center items-center'>
-                <Metric number={15} text={'Clients Impacted'} addPlus={true} />
-                <Metric number={3} text={'Awards Won'} addPlus={false} />
+              <div
+                ref={nodeRefSecond}
+                className='flex flex-row gap-24 justify-center items-center'
+              >
+                {inViewSecond ? (
+                  <>
+                    <Metric
+                      number={15}
+                      text={'Clients Impacted'}
+                      addPlus={true}
+                    />
+                    <Metric number={3} text={'Awards Won'} addPlus={false} />
+                  </>
+                ) : null}
               </div>
             </div>
           </div>
