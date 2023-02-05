@@ -31,23 +31,15 @@ export default function GalleryItem({ description, imageURL }) {
             type: 'ease',
           },
         }}
-        className='mt-14 flex flex-col justify-center items-start'
+        className='mt-14 flex flex-col justify-center items-start h-[30rem] md:h-[38rem] lg:h-[43rem]'
       >
         <p className='font-body text-lg tracking-wide text-accent-gray'>
           {description}
         </p>
         <img
           src={imageURL}
-          className='mt-10 w-full h-auto lg:h-[32rem] object-cover rounded'
+          className='mt-10 w-full h-[25rem] md:h-[32rem] lg:h-[35rem] object-cover rounded'
         />
-        {/*
-        <div className='mt-10 w-full h-auto lg:h-[32rem] object-cover rounded'>
-          <LazyLoadImage
-            src={imageURL} // use normal <img> attributes as props
-            effect='blur'
-          />
-        </div>
-        */}
       </motion.div>
     </AnimatePresence>
   )
