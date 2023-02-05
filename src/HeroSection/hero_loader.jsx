@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react'
-import heroImage from '../assets/hero_image.png'
+import heroImage from '../assets/hero_image.avif'
 import { motion } from 'framer-motion'
 
 export default function HeroLoader({ setImageLoaded }) {

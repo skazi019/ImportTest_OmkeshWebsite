@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import HeroLoader from './hero_loader'
 import { motion, AnimatePresence } from 'framer-motion'
-import heroImage from '../assets/hero_image.png'
+import heroImage from '../assets/hero_image.avif'
 import DesktopNavbar from '../Navbar/DesktopNav'
 import { WordAnimation, LetterAnimation } from './AnimatedCharacters'
 
@@ -22,9 +22,7 @@ export default function Hero() {
       setloaded(true)
     } else {
       setmobile(false)
-      setTimeout(() => {
-        setloaded(true)
-      }, 2000)
+      setloaded(true)
       setHeroDelay(1.5)
     }
   }
