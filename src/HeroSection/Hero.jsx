@@ -22,7 +22,9 @@ export default function Hero() {
       setloaded(true)
     } else {
       setmobile(false)
-      setloaded(true)
+      setTimeout(() => {
+        setloaded(true)
+      }, 1500)
       setHeroDelay(1.5)
     }
   }
