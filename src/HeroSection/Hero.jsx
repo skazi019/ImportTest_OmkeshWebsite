@@ -3,7 +3,7 @@ import HeroLoader from './hero_loader'
 import { motion, AnimatePresence } from 'framer-motion'
 import heroImage from '../assets/hero_image.avif'
 import DesktopNavbar from '../Navbar/DesktopNav'
-import { WordAnimation, LetterAnimation } from './AnimatedCharacters'
+import { LetterAnimation } from './AnimatedCharacters'
 
 export default function Hero() {
   const [loaded, setloaded] = useState(false)
@@ -69,7 +69,11 @@ export default function Hero() {
                     {'Jay Shree Krishna Consultants'
                       .split(' ')
                       .map((word, index) => (
-                        <LetterAnimation text={word} />
+                        <LetterAnimation
+                          key={word + index}
+                          elemKey={word + index}
+                          text={word}
+                        />
                       ))}
                   </motion.div>
                   <motion.p
