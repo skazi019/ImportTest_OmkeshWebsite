@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion'
 
-export const LetterAnimation = ({ text }) => {
+export const LetterAnimation = ({ elemKey, text }) => {
   const letters = Array.from(text)
 
   const container = {
@@ -15,10 +15,10 @@ export const LetterAnimation = ({ text }) => {
     visible: {
       opacity: 1,
       x: 0,
-      y: -30,
+      y: -10,
       transition: {
         type: 'ease',
-        damping: 20,
+        damping: 10,
         stiffness: 50,
       },
     },
@@ -28,7 +28,7 @@ export const LetterAnimation = ({ text }) => {
       y: 0,
       transition: {
         type: 'ease',
-        damping: 20,
+        damping: 10,
         stiffness: 50,
       },
     },
@@ -36,13 +36,14 @@ export const LetterAnimation = ({ text }) => {
 
   return (
     <motion.div
+      key={elemKey}
       variants={container}
       initial='hidden'
       animate='visible'
       className='flex text-white'
     >
       {letters.map((letter, index) => (
-        <motion.span variants={child} key={index}>
+        <motion.span key={letter + index} variants={child}>
           {letter === ' ' ? '\u00A0' : letter}
         </motion.span>
       ))}
