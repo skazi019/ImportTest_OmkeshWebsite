@@ -4,8 +4,12 @@ import aboutUsDivider from '../assets/aboutus_divider_2.png'
 import { useInView } from 'react-intersection-observer'
 
 export default function AboutUs() {
-  const [nodeRefFirst, inViewFirst] = useInView()
-  const [nodeRefSecond, inViewSecond] = useInView()
+  const [nodeRefFirst, inViewFirst] = useInView({
+    triggerOnce: true,
+  })
+  const [nodeRefSecond, inViewSecond] = useInView({
+    triggerOnce: true,
+  })
 
   return (
     <>
