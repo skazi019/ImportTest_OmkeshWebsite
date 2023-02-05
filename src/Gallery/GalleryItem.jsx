@@ -31,7 +31,7 @@ export default function GalleryItem({ description, imageURL }) {
             type: 'ease',
           },
         }}
-        className='mt-14 flex flex-col justify-center items-start h-[30rem] md:h-[38rem] lg:h-[43rem]'
+        className='mt-14 flex flex-col justify-center items-start h-[30rem] md:h-[38rem] lg:h-[42rem]'
       >
         <p className='font-body text-lg tracking-wide text-accent-gray'>
           {description}
