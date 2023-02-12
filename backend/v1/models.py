@@ -1,5 +1,6 @@
-from django.contrib.admin.utils import help_text_for_field
 from django.db import models
+
+from pictures.models import PictureField
 
 
 class Gallery(models.Model):
@@ -9,10 +10,11 @@ class Gallery(models.Model):
         help_text="This description would he displayed above the gallery image.",
         default="One or two statments describing the project in the image",
     )
-    fullImage = models.ImageField(
+    fullImage = PictureField(
         upload_to="gallery",
         blank=False,
         help_text="Please upload image size of atleast: 1920p x 1080px",
+        aspect_ratios=["16/9"],
     )
 
     @property
@@ -40,10 +42,11 @@ class Founder(models.Model):
     order = models.SmallIntegerField()
     name = models.CharField(blank=False, max_length=120)
     bio = models.CharField(blank=False, max_length=150)
-    self_image = models.ImageField(
-        upload_to="gallery",
+    self_image = PictureField(
+        upload_to="founder",
         blank=False,
         help_text="Please upload image size of atleast: 1920p x 1080px",
+        aspect_ratios=["4/5"],
     )
 
     @property

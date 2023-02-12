@@ -67,6 +67,7 @@ PICTURES = {
     "CONTAINER_WIDTH": 1200,
     "FILE_TYPES": ["WEBP"],
     "PIXEL_DENSITIES": [1, 2],
+    "USE_PLACEHOLDERS": False,
 }
 
 MIDDLEWARE = [
