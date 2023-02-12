@@ -1,0 +1,22 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+django = "*"
+gunicorn = "*"
+python-dotenv = "*"
+whitenoise = "*"
+django-cors-headers = "*"
+pillow = "*"
+django-suit = {file = "https://github.com/darklow/django-suit/tarball/v2"}
+django-pictures = "*"
+django-cleanup = "*"
+
+[dev-packages]
+black = "*"
+flake8 = "*"
+
+[requires]
+python_version = "3.10"
