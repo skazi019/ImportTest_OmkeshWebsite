@@ -13,7 +13,7 @@ import os
 from pathlib import Path
 from dotenv import load_dotenv, find_dotenv
 
-load_dotenv(find_dotenv(filename="../../.env"))
+load_dotenv(find_dotenv(filename=".env"))
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -71,7 +71,7 @@ ROOT_URLCONF = "backend.urls"
 TEMPLATES = [
     {
         "BACKEND": "django.template.backends.django.DjangoTemplates",
-        "DIRS": [os.path.join(BASE_DIR, "templates")],
+        "DIRS": [os.path.join(BASE_DIR)],
         "APP_DIRS": True,
         "OPTIONS": {
             "context_processors": [
@@ -130,6 +130,8 @@ USE_L10N = True
 
 USE_TZ = True
 
+# Vite App Dir: point it to the folder your vite app is in.
+VITE_APP_DIR = BASE_DIR
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
@@ -138,6 +140,7 @@ STATIC_URL = "/static/"
 STATIC_ROOT = os.path.join(BASE_DIR, "static_root")
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "static"),
+    VITE_APP_DIR / "dist",
 ]
 
 MEDIA_ROOT = os.path.join(BASE_DIR, "media")

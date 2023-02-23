@@ -10,8 +10,6 @@ python-dotenv = "*"
 whitenoise = "*"
 django-cors-headers = "*"
 pillow = "*"
-django-suit = {file = "https://github.com/darklow/django-suit/tarball/v2"}
-django-pictures = "*"
 django-cleanup = "*"
 
 [dev-packages]

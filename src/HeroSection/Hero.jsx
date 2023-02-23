@@ -64,7 +64,7 @@ export default function Hero() {
                         staggerChildren: 1,
                       },
                     }}
-                    className='flex flex-row flex-wrap gap-2 font-header font-semibold text-5xl lg:text-[5rem] lg:w-[90rem] leading-normal break-words'
+                    className='flex flex-row flex-wrap gap-2 font-header font-semibold text-4xl lg:text-[5rem] lg:w-[90rem] leading-normal break-words'
                   >
                     {'Jay Shree Krishna Consultants'
                       .split(' ')

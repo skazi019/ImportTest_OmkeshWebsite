@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "26480d8144f00ab2aa8dcedbe38d5483e83756dfd4af5dfb0c03da4a87a1fb26"
+            "sha256": "4eff6e0cc1f65505d248e7cc2c1f635f8dac34bedf069f1b2534eace1ebd19f9"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -47,21 +47,6 @@
             ],
             "index": "pypi",
             "version": "==3.13.0"
-        },
-        "django-pictures": {
-            "hashes": [
-                "sha256:51c27afb48b74334a52b4fb1e727a1c0d794442471ebcdda1a5cda06d57510a1",
-                "sha256:da01e51ef303948cfa0443578caab10601da5cc269afbdcf63dc5db7fcb022cf"
-            ],
-            "index": "pypi",
-            "version": "==1.0.1"
-        },
-        "django-suit": {
-            "file": "https://github.com/darklow/django-suit/tarball/v2",
-            "hashes": [
-                "sha256:b40c916de9528ca86bcccd42d1fd54e7773e5071d2bfd9efc576039c1a441c0b"
-            ],
-            "version": "==2.0a2"
         },
         "gunicorn": {
             "hashes": [
