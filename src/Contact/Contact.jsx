@@ -1,5 +1,5 @@
 import ContactItem from './ContactItem'
-import CTAimage from '../assets/cta_image.png'
+import CTAimage from '/cta_image.png'
 
 export default function Contact() {
   return (

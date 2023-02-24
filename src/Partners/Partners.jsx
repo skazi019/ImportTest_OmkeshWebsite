@@ -1,8 +1,8 @@
 
-import masonLogo from '../assets/mason_logo.png'
-import amazonLogo from '../assets/amazon_logo.png'
-import jpmLogo from '../assets/jpm_logo.png'
-import galileoLogo from '../assets/galileo_logo.png'
+import masonLogo from '/mason_logo.png'
+import amazonLogo from '/amazon_logo.png'
+import jpmLogo from '/jpm_logo.png'
+import galileoLogo from '/galileo_logo.png'
 
 export default function Partners() {
   return (

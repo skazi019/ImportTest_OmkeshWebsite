@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import HeroLoader from './hero_loader'
 import { motion, AnimatePresence } from 'framer-motion'
-import heroImage from '../assets/hero_image.avif'
+import heroImage from '/hero_image.avif'
 import DesktopNavbar from '../Navbar/DesktopNav'
 import { LetterAnimation } from './AnimatedCharacters'
 
