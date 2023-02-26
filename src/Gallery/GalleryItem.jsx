@@ -37,7 +37,7 @@ export default function GalleryItem({ description, imageURL }) {
           {description}
         </p>
         <img
-          src={`../assets/`+imageURL}
+          src={`/gallery/`+imageURL}
           className='mt-10 w-full h-[25rem] md:h-[32rem] lg:h-[35rem] object-cover rounded'
         />
       </motion.div>

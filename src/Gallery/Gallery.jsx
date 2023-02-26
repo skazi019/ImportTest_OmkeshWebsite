@@ -7,6 +7,7 @@ export default function Gallery() {
   const [imageIndex, setImageIndex] = useState(1)
   const [leftButtonAnimate, setleftButtonAnimate] = useState(false)
   const [rightButtonAnimate, setrightButtonAnimate] = useState(false)
+  const [galleryImages, setGalleryImages] = useState([])
 
   const animateGalleryButton = (setFunc) => {
     setFunc(true)
@@ -34,6 +35,23 @@ export default function Gallery() {
     }
     animateGalleryButton(setleftButtonAnimate)
   }
+
+  function getAllGalleryImages() {
+        console.log('calling gallery api')
+    fetch('/gallery').then(async function (response) {
+      const res = response
+      const data = await res.json()
+      console.log('Data returned is ', data)
+      if (data.status === 'SUCCESS') {
+        console.log(data.all_gallery_images)
+        setGalleryImages(data.all_gallery_images)
+      } else {
+        console.log('Error while getting gallery images')
+      }
+    })
+  }
+
+  getAllGalleryImages()
 
   return (
     <>
@@ -93,7 +111,7 @@ export default function Gallery() {
             </motion.button>
           </div>
         </div>
-        {apiData
+        {galleryImages
           .filter((item) => item.index === imageIndex)
           .map((item) => (
             <GalleryItem

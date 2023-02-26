@@ -1,39 +1,22 @@
 from django.shortcuts import render
 from django.http import HttpResponse, JsonResponse
 from django.core import serializers
+from django.views.decorators.csrf import csrf_exempt
+from rest_framework import viewsets
 
 from .models import Founder, Principle, Gallery
+from .serializers import GallerySerializer
 
 
 # Create your views here.
+@csrf_exempt
 def index(request):
     return render(request=request, template_name="index.html")
 
 
-def get_gallery_images(request):
-    if request.method == "GET":
-        try:
-            all_gallery_images = list(Gallery.objects.all().values())
-            # all_gallery_images = Gallery.objects.all()
-            # all_gallery_images = serializers.serialize("json", all_gallery_images)
-
-            return JsonResponse(
-                data={
-                    "status": "SUCCESS",
-                    "all_gallery_images": all_gallery_images,
-                },
-                status=200,
-            )
-        except Exception as e:
-            return JsonResponse(
-                data={"status": "ERROR", "message": str(e)},
-                status=400,
-            )
-    else:
-        return JsonResponse(
-            data={"status": "ERROR", "message": "Request method not supported"},
-            status=500,
-        )
+class GetGalleryImages(viewsets.ModelViewSet):
+    serializer_class = GallerySerializer
+    queryset = Gallery.objects.all()
 
 
 def get_principles(request):
