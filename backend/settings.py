@@ -71,7 +71,7 @@ ROOT_URLCONF = "backend.urls"
 TEMPLATES = [
     {
         "BACKEND": "django.template.backends.django.DjangoTemplates",
-        "DIRS": [os.path.join(BASE_DIR)],
+        "DIRS": [os.path.join(BASE_DIR, "templates")],
         "APP_DIRS": True,
         "OPTIONS": {
             "context_processors": [
@@ -130,9 +130,6 @@ USE_L10N = True
 
 USE_TZ = True
 
-# Vite App Dir: point it to the folder your vite app is in.
-VITE_APP_DIR = BASE_DIR
-
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
@@ -140,7 +137,6 @@ STATIC_URL = "/static/"
 STATIC_ROOT = os.path.join(BASE_DIR, "static_root")
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "static"),
-    VITE_APP_DIR / "dist",
 ]
 
 MEDIA_ROOT = os.path.join(BASE_DIR, "media")

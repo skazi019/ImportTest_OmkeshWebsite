@@ -1,11 +1,11 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { LazyLoadImage } from 'react-lazy-load-image-component'
 import { motion, AnimatePresence } from 'framer-motion'
 import 'react-lazy-load-image-component/src/effects/blur.css'
 
 export default function GalleryItem({ description, imageURL }) {
   // const [loaded, setLoaded] = useState(false)
-  // console.log('Image load status: ', loaded)
+  console.log(`Image url: ../assets/${imageURL}`)
 
   return (
     <AnimatePresence>
@@ -37,7 +37,7 @@ export default function GalleryItem({ description, imageURL }) {
           {description}
         </p>
         <img
-          src={imageURL}
+          src={`../assets/`+imageURL}
           className='mt-10 w-full h-[25rem] md:h-[32rem] lg:h-[35rem] object-cover rounded'
         />
       </motion.div>

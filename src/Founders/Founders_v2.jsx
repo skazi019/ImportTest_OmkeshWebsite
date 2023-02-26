@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import founder1Image from '/founder_1.png'
-import founder2Image from '/founder_2.png'
+import founder1Image from '../assets/founder_1.png'
+import founder2Image from '../assets/founder_2.png'
 
 export default function Founders() {
   const allFounders = [

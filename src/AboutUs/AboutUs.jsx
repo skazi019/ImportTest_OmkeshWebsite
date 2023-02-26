@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion'
 import Metric from './Metric'
-import aboutUsDivider from '/aboutus_divider_2.png'
+import aboutUsDivider from '../assets/aboutus_divider_2.png'
 import { useInView } from 'react-intersection-observer'
 
 export default function AboutUs() {

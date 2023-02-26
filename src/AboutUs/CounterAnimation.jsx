@@ -1,5 +1,4 @@
-import { animate, useAnimation, motion } from 'framer-motion'
-import { useInView } from 'react-intersection-observer'
+import { animate } from 'framer-motion'
 import React, { useEffect, useRef } from 'react'
 
 export default function Counter({ from, to }) {

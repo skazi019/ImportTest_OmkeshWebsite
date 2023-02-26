@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
-import heroImage from '/hero_image.avif'
-import { motion } from 'framer-motion'
+import heroImage from '../assets/hero_image.avif'
+import { easeInOut, motion } from 'framer-motion'
 
 export default function HeroLoader({ setImageLoaded }) {
   return (
@@ -16,7 +16,7 @@ export default function HeroLoader({ setImageLoaded }) {
           y: 0,
           transition: {
             duration: 1,
-            ease: [0.6, 0.01, -0.05, 0.9],
+            ease: easeInOut, // [0.6, 0.01, -0.05, 0.9] not working here in CRA but works in vite
           },
         }}
         src={heroImage}
