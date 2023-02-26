@@ -2,7 +2,7 @@ from django.db import models
 
 
 class Gallery(models.Model):
-    order = models.SmallIntegerField(default=10)
+    index = models.SmallIntegerField(default=1)
     description = models.TextField(
         blank=False,
         help_text="This description would he displayed above the gallery image.",

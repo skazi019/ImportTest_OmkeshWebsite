@@ -5,4 +5,4 @@ from .models import Gallery
 class GallerySerializer(serializers.ModelSerializer):
     class Meta:
         model = Gallery
-        fields = ("description", "imageUrl")
+        fields = ("index", "description", "imageUrl")

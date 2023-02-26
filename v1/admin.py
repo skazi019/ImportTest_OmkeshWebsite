@@ -4,9 +4,9 @@ from .models import Gallery, Principle, Founder
 
 
 class GalleryView(admin.ModelAdmin):
-    list_display = ("order", "description")
-    list_editable = ["order"]
-    ordering = ["order"]
+    list_display = ("index", "description")
+    list_editable = ["index"]
+    ordering = ["index"]
     list_display_links = ("description",)
 
 

@@ -5,7 +5,7 @@ import 'react-lazy-load-image-component/src/effects/blur.css'
 
 export default function GalleryItem({ description, imageURL }) {
   // const [loaded, setLoaded] = useState(false)
-  console.log(`Image url: ../assets/${imageURL}`)
+  console.log(`Image url: ${imageURL}`)
 
   return (
     <AnimatePresence>
@@ -37,7 +37,7 @@ export default function GalleryItem({ description, imageURL }) {
           {description}
         </p>
         <img
-          src={`/gallery/`+imageURL}
+          src={imageURL}
           className='mt-10 w-full h-[25rem] md:h-[32rem] lg:h-[35rem] object-cover rounded'
         />
       </motion.div>

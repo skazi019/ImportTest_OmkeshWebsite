@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
 import { apiData } from '../data'
 import GalleryItem from './GalleryItem'
@@ -37,21 +37,24 @@ export default function Gallery() {
   }
 
   function getAllGalleryImages() {
-        console.log('calling gallery api')
-    fetch('/gallery').then(async function (response) {
+    fetch(process.env.REACT_APP_BACKEND_URI + '/gallery').then(async function (
+      response
+    ) {
       const res = response
       const data = await res.json()
-      console.log('Data returned is ', data)
-      if (data.status === 'SUCCESS') {
-        console.log(data.all_gallery_images)
-        setGalleryImages(data.all_gallery_images)
+      if (data) {
+        console.log(data)
+        setGalleryImages(data)
       } else {
         console.log('Error while getting gallery images')
       }
     })
   }
 
-  getAllGalleryImages()
+  useEffect(() => {
+    getAllGalleryImages()
+    return () => {}
+  }, [])
 
   return (
     <>

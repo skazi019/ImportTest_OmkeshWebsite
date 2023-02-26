@@ -149,6 +149,8 @@ MEDIA_URL = "/media/"
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
+CORS_ORIGIN_ALLOW_ALL = True
+
 CORS_ORIGIN_WHITELIST = [
     os.environ.get("FRONTEND_URI"),
 ]
