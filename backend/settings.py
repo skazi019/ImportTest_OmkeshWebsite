@@ -26,17 +26,17 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = "django-insecure-micz(ois9-lgm3q_41l8aavr0$j6p+u6o=1y0(0s**&j5*n@ij"
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = bool(os.environ.get("DEBUG", "False"))  # Set in env for true 
 
 ALLOWED_HOSTS = [
     "jskc.fly.dev",
-    os.environ.get("FRONTEND_URI").split("https://")[0],
+    os.environ.get("REACT_APP_BACKEND_URI").split("https://")[0],
     "localhost",
     "127.0.0.1",
 ]
 
 CSRF_TRUSTED_ORIGINS = [
-    os.environ.get("FRONTEND_URI"),
+    os.environ.get("REACT_APP_BACKEND_URI"),
 ]
 
 
@@ -152,5 +152,5 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 CORS_ORIGIN_ALLOW_ALL = True
 
 CORS_ORIGIN_WHITELIST = [
-    os.environ.get("FRONTEND_URI"),
+    os.environ.get("REACT_APP_BACKEND_URI"),
 ]
