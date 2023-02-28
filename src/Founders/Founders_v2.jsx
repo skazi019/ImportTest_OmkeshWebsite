@@ -47,7 +47,7 @@ export default function Founders() {
           Our Founders
         </h1>
         {!mobile ? (
-          <div className='lg:-skew-x-12 mt-14 h-[35rem] flex flex-col lg:flex-row justify-center lg:justify-start items-center lg:items-start overflow-hidden'>
+          <div className='mt-14 h-[35rem] flex flex-col lg:flex-row justify-center lg:justify-start items-center lg:items-start overflow-hidden rounded-md'>
             <AnimatePresence>
               {allFounders.map((founderData, index) => (
                 <motion.div
@@ -67,7 +67,7 @@ export default function Founders() {
                 >
                   <img
                     src={founderData.imageUrl}
-                    className='lg:skew-x-12 object-cover aspect-[9/16] h-[55rem] lg:hover:opacity-40'
+                    className='object-cover h-[55rem] lg:hover:opacity-40'
                   />
                   <div className='absolute hidden group-hover:block group-hover:opacity-100 transition duration-300 left-4 top-8'>
                     <h1 className='font-header text-5xl'>{founderData.name}</h1>
