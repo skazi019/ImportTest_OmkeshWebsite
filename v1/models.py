@@ -36,15 +36,18 @@ class Principle(models.Model):
         blank=False,
         help_text="This description would he displayed on the right/below the Principle title.",
     )
+    border_bottom = models.BooleanField(
+        default=False, help_text="Leave this field as it is", editable=False
+    )
 
 
 class Founder(models.Model):
-    order = models.SmallIntegerField()
+    order = models.SmallIntegerField(default=1)
     name = models.CharField(blank=False, max_length=120)
     bio = models.CharField(blank=False, max_length=150)
     self_image = models.ImageField(
         upload_to="founder",
-        blank=False,
+        blank=True,
         help_text="""
             Please convert your JPG/PNG/etc image to WEBP at cloudconvert.com or squoosh.app to ensure a smooth expreience for your users.\n
             Also, please make sure the aspect ratio of the image is 4:5, similar to that of a Instagram post.
@@ -54,4 +57,4 @@ class Founder(models.Model):
     @property
     def imageUrl(self):
         if self.self_image and hasattr(self.self_image, "url"):
-            return self.self_image
+            return self.self_image.url

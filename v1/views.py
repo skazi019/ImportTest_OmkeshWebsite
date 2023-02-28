@@ -1,11 +1,14 @@
 from django.shortcuts import render
-from django.http import HttpResponse, JsonResponse
-from django.core import serializers
+from django.http import JsonResponse
 from django.views.decorators.csrf import csrf_exempt
 from rest_framework import viewsets
+from rest_framework import status
+from rest_framework.response import Response
+from rest_framework.decorators import api_view
+
 
 from .models import Founder, Principle, Gallery
-from .serializers import GallerySerializer
+from .serializers import GallerySerializer, PrincipleSerializer, FounderSerializer
 
 
 # Create your views here.
@@ -14,58 +17,35 @@ def index(request):
     return render(request=request, template_name="index.html")
 
 
-class GetGalleryImages(viewsets.ModelViewSet):
-    serializer_class = GallerySerializer
-    queryset = Gallery.objects.all()
+@api_view(["GET"])
+def get_gallery_images(request):
+    if request.method == "GET":
+        try:
+            all_images = Gallery.objects.all()
+            serializer = GallerySerializer(all_images, many=True)
+            return Response(serializer.data, status=status.HTTP_200_OK)
+        except Exception as e:
+            return Response({"error": str(e)}, status=status.HTTP_404_NOT_FOUND)
 
 
+@api_view(["GET"])
 def get_principles(request):
     if request.method == "GET":
         try:
-            all_principles = list(Founder.objects.all().values())
             all_principles = Principle.objects.all()
-            all_principles = serializers.serialize("json", all_principles)
-
-            return JsonResponse(
-                data={
-                    "status": "SUCCESS",
-                    "all_principles": all_principles,
-                },
-                status=200,
-            )
+            all_principles[len(all_principles) - 1].border_bottom = True
+            serializer = PrincipleSerializer(all_principles, many=True)
+            return Response(serializer.data, status=status.HTTP_200_OK)
         except Exception as e:
-            return JsonResponse(
-                data={"status": "ERROR", "message": str(e)},
-                status=400,
-            )
-    else:
-        return JsonResponse(
-            data={"status": "ERROR", "message": "Request method not supported"},
-            status=500,
-        )
+            return Response({"error": str(e)}, status=status.HTTP_404_NOT_FOUND)
 
 
+@api_view(["GET"])
 def get_founders(request):
     if request.method == "GET":
         try:
-            all_founders = list(Founder.objects.all().values())
-            # all_founders = Founder.objects.all()
-            # all_founders = serializers.serialize("json", all_founders)
-
-            return JsonResponse(
-                data={
-                    "status": "SUCCESS",
-                    "all_founders": all_founders,
-                },
-                status=200,
-            )
+            all_founders = Founder.objects.all()
+            serializer = FounderSerializer(all_founders, many=True)
+            return Response(serializer.data, status=status.HTTP_200_OK)
         except Exception as e:
-            return JsonResponse(
-                data={"status": "ERROR", "message": str(e)},
-                status=400,
-            )
-    else:
-        return JsonResponse(
-            data={"status": "ERROR", "message": "Request method not supported"},
-            status=500,
-        )
+            return Response({"error": str(e)}, status=status.HTTP_404_NOT_FOUND)
