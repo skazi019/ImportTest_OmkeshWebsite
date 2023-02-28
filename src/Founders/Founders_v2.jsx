@@ -1,31 +1,9 @@
 import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import founder1Image from '../assets/founder_1.png'
-import founder2Image from '../assets/founder_2.png'
 
 export default function Founders() {
-  const allFounders = [
-    {
-      id: 1,
-      name: 'Lorem Ipsum',
-      imageSrc: founder1Image,
-      bio: 'Lorem ipsum dolor sit amet, qui minim labore adipisicing minim sint cillum sint consectetur cupidatat.',
-    },
-    {
-      id: 2,
-      name: 'Omkesh Chaurasia',
-      imageSrc: founder2Image,
-      bio: 'Lorem ipsum dolor sit amet, qui minim labore adipisicing minim sint cillum sint consectetur cupidatat.',
-    },
-    {
-      id: 3,
-      name: 'Lorem Ipsum',
-      imageSrc: founder1Image,
-      bio: 'Lorem ipsum dolor sit amet, qui minim labore adipisicing minim sint cillum sint consectetur cupidatat.',
-    },
-  ]
-
   const [mobile, setmobile] = useState(false)
+  const [allFounders, setAllFounders] = useState([])
 
   const interpretViewport = () => {
     // for screen width below 1024px we do not want the Hero Image animation.
@@ -41,8 +19,25 @@ export default function Founders() {
     }
   }
 
+  function getAllFounders() {
+    fetch(process.env.REACT_APP_BACKEND_URI + '/founders').then(async function (
+      response
+    ) {
+      const res = response
+      const data = await res.json()
+      if (data) {
+        console.log(data)
+        setAllFounders(data)
+      } else {
+        console.log('Error while getting princples')
+      }
+    })
+  }
+
   useEffect(() => {
     interpretViewport()
+    getAllFounders()
+    return () => {}
   }, [window.innerWidth])
 
   return (
@@ -57,13 +52,13 @@ export default function Founders() {
               {allFounders.map((founderData, index) => (
                 <motion.div
                   initial={{
-                    width: '33.34%',
+                    width: 100 / allFounders.length + '%',
                   }}
                   key={founderData.name + index}
                   whileHover={{
                     width: '80%',
                     transition: {
-                      duration: 0.3,
+                      duration: 0.5,
                       type: 'tween',
                       ease: 'easeInOut',
                     },
@@ -71,7 +66,7 @@ export default function Founders() {
                   className='relative group overflow-hidden'
                 >
                   <img
-                    src={founderData.imageSrc}
+                    src={founderData.imageUrl}
                     className='lg:skew-x-12 object-cover aspect-[9/16] h-[55rem] lg:hover:opacity-40'
                   />
                   <div className='absolute hidden group-hover:block group-hover:opacity-100 transition duration-300 left-4 top-8'>
@@ -91,7 +86,7 @@ export default function Founders() {
           <div className='mt-14 flex flex-col lg:flex-row gap-10 lg:gap-2 justify-center lg:justify-start items-center lg:items-start'>
             {allFounders.map((founderData, index) => (
               <div className='relative group overflow-hidden'>
-                <img src={founderData.imageSrc} />
+                <img src={founderData.imageUrl} />
                 <div className='absolute left-4 bottom-8'>
                   <h1 className='font-header text-5xl'>{founderData.name}</h1>
                   <p className='mt-4 text-accent-gray block'>
