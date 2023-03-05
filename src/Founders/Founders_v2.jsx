@@ -12,7 +12,6 @@ export default function Founders() {
     // tailwind 5xl - 1024px
 
     if (window.innerWidth < 1024) {
-      console.log('setting mobile true')
       setmobile(true)
     } else {
       setmobile(false)
@@ -26,7 +25,6 @@ export default function Founders() {
       const res = response
       const data = await res.json()
       if (data) {
-        console.log(data)
         setAllFounders(data)
       } else {
         console.log('Error while getting princples')

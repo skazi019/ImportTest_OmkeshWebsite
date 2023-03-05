@@ -10,7 +10,6 @@ export default function Principles() {
         const res = response
         const data = await res.json()
         if (data) {
-          console.log(data)
           setPrinciples(data)
         } else {
           console.log('Error while getting princples')

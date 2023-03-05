@@ -43,7 +43,6 @@ export default function Gallery() {
       const res = response
       const data = await res.json()
       if (data) {
-        console.log(data)
         setGalleryImages(data)
       } else {
         console.log('Error while getting gallery images')

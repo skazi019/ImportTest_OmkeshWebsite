@@ -5,7 +5,6 @@ import 'react-lazy-load-image-component/src/effects/blur.css'
 
 export default function GalleryItem({ description, imageURL }) {
   // const [loaded, setLoaded] = useState(false)
-  console.log(`Image url: ${imageURL}`)
 
   return (
     <AnimatePresence>

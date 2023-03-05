@@ -12,7 +12,6 @@ export default function Contact() {
       const res = response
       const data = await res.json()
       if (data) {
-        console.log(data)
         setContactDetails(data)
       } else {
         console.log('Error while getting princples')
