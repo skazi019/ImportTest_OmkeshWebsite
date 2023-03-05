@@ -10,7 +10,7 @@ export default function Partners() {
       const res = response
       const data = await res.json()
       if (data) {
-        partners(data)
+        setPartners(data)
       } else {
         console.log('Error while getting partners')
       }
@@ -33,7 +33,7 @@ export default function Partners() {
         </h1>
         <div className='mt-14 px-10 flex flex-row gap-20 md:gap-8 flex-wrap justify-center md:justify-between items-center'>
           {partners.map((item) => (
-            <img src={item.logo_url} className='w-32' />
+            <img src={item.logo_url} alt={item.name} className='w-32' />
           ))}
         </div>
       </section>

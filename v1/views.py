@@ -28,6 +28,7 @@ def get_gallery_images(request):
     if request.method == "GET":
         try:
             all_images = Gallery.objects.all()
+            all_images = sorted(all_images, key=lambda item: item.index)
             serializer = GallerySerializer(all_images, many=True)
             return Response(serializer.data, status=status.HTTP_200_OK)
         except Exception as e:
@@ -39,6 +40,7 @@ def get_principles(request):
     if request.method == "GET":
         try:
             all_principles = Principle.objects.all()
+            all_principles = sorted(all_principles, key=lambda item: item.order)
             all_principles[len(all_principles) - 1].border_bottom = True
             serializer = PrincipleSerializer(all_principles, many=True)
             return Response(serializer.data, status=status.HTTP_200_OK)
@@ -51,6 +53,7 @@ def get_founders(request):
     if request.method == "GET":
         try:
             all_founders = Founder.objects.all()
+            all_founders  = sorted(all_founders , key=lambda item: item.order)
             serializer = FounderSerializer(all_founders, many=True)
             return Response(serializer.data, status=status.HTTP_200_OK)
         except Exception as e:
@@ -73,6 +76,7 @@ def get_partner(request):
     if request.method == "GET":
         try:
             all_partners = Partner.objects.all()
+            all_partners = sorted(all_partners, key=lambda item: item.order)
             serializer = PartnerSerializer(all_partners, many=True)
             return Response(serializer.data, status=status.HTTP_200_OK)
         except Exception as e:
