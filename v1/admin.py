@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from .models import Gallery, Principle, Founder
+from .models import Gallery, Principle, Founder, SEO
 
 
 class GalleryView(admin.ModelAdmin):
@@ -24,6 +24,18 @@ class FounderView(admin.ModelAdmin):
     list_display_links = ("name",)
 
 
+class SEOView(admin.ModelAdmin):
+    list_display = ("title", "description")
+
+    def has_add_permission(self, request):
+        # if there's already an entry, do not allow adding
+        count = SEO.objects.all().count()
+        if count == 0:
+            return True
+        return False
+
+
 admin.site.register(Gallery, GalleryView)
 admin.site.register(Principle, PrincipleView)
 admin.site.register(Founder, FounderView)
+admin.site.register(SEO, SEOView)

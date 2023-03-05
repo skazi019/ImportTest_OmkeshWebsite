@@ -1,7 +1,11 @@
+from django.core.validators import MaxValueValidator
 from django.db import models
 
 
 class Gallery(models.Model):
+    class Meta:
+            verbose_name_plural = 'Gallery'
+
     index = models.SmallIntegerField(default=1)
     description = models.TextField(
         blank=False,
@@ -58,3 +62,17 @@ class Founder(models.Model):
     def imageUrl(self):
         if self.self_image and hasattr(self.self_image, "url"):
             return self.self_image.url
+
+
+class SEO(models.Model):
+    class Meta:
+            verbose_name = 'SEO'
+            verbose_name_plural = 'SEO'
+
+    title = models.CharField(
+        blank=False, max_length=120, default="Jay Shree Krishna Consultants"
+    )
+    description = models.TextField(
+        blank=False, default="Professional structural engineers"
+    )
+    logo = models.ImageField(upload_to="seo", blank=True)

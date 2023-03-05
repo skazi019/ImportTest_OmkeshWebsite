@@ -6,7 +6,7 @@ export default function SEO() {
     <div className='application'>
       <Helmet>
         <meta charset='utf-8' />
-        <link rel='icon' href='/static/favicon.ico' />
+        <link rel='icon' href='/favicon.ico' />
         <meta name='viewport' content='width=device-width, initial-scale=1' />
         <meta name='theme-color' content='#000000' />
         <meta
@@ -14,7 +14,7 @@ export default function SEO() {
           content='We are professional structural consultants building safe and solid building designs'
         />
         // <link rel='apple-touch-icon' href='/logo192.png' />
-        <link rel='manifest' href='/static/manifest.json' />
+        <link rel='manifest' href='/manifest.json' />
         <title>Jay Shree Krishna Consultants</title>
       </Helmet>
     </div>
