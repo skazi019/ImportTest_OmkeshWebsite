@@ -8,3 +8,14 @@ This project uses django for backend and react for frontend
 - transfer the `index.html` from `build` folder of react to `templates` folder in django
 - make sure the root url `/` is serving this `index.html`
 - start your django server `python manage.py runserver`
+
+```bash
+npm run build
+python manage.py collectstatic --no-input
+cp build/index.html templates/
+cp build/manifest.json static/
+cp build/robots.txt static/
+python manage.py runserver
+
+```
+
