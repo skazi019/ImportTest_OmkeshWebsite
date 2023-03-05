@@ -4,7 +4,7 @@ import CTAimage from '../assets/cta_image.png'
 export default function Contact() {
   return (
     <>
-      <section className='mt-48 lg:mt-48 h-auto w-screen w-full lg:mx-auto lg:max-w-6xl'>
+      <section id="contactus" className='mt-48 lg:mt-48 h-auto w-screen w-full lg:mx-auto lg:max-w-6xl'>
         <div className='mt-14 flex flex-row justify-center items-center'>
           <div className='w-screen md:w-3/5'>
             <div className='h-56 pl-6 md:pl-8 lg:pl-10 flex flex-col justify-center bg-accent-gray lg:bg-inherit'>
