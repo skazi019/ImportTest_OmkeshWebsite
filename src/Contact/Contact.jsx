@@ -1,10 +1,36 @@
+import React, { useState, useEffect } from 'react'
 import ContactItem from './ContactItem'
 import CTAimage from '../assets/cta_image.png'
 
 export default function Contact() {
+  const [contactDetails, setContactDetails] = useState([])
+
+  function getContactDetails() {
+    fetch(process.env.REACT_APP_BACKEND_URI + '/contact').then(async function (
+      response
+    ) {
+      const res = response
+      const data = await res.json()
+      if (data) {
+        console.log(data)
+        setContactDetails(data)
+      } else {
+        console.log('Error while getting princples')
+      }
+    })
+  }
+
+  useEffect(() => {
+    getContactDetails()
+    return () => {}
+  }, [])
+
   return (
     <>
-      <section id="contactus" className='mt-48 lg:mt-48 h-auto w-screen w-full lg:mx-auto lg:max-w-6xl'>
+      <section
+        id='contactus'
+        className='mt-48 lg:mt-48 h-auto w-screen w-full lg:mx-auto lg:max-w-6xl'
+      >
         <div className='mt-14 flex flex-row justify-center items-center'>
           <div className='w-screen md:w-3/5'>
             <div className='h-56 pl-6 md:pl-8 lg:pl-10 flex flex-col justify-center bg-accent-gray lg:bg-inherit'>
@@ -17,10 +43,21 @@ export default function Contact() {
             </div>
             <div className='h-80 pl-8 md:pl-12 lg:pl-10 flex flex-col justify-center items-start bg-accent-red lg:bg-inherit'>
               <div className='flex flex-col gap-6 justify-start items-start'>
-                <ContactItem type={'P.'} detail={'+91 9999999999'} />
-                <ContactItem type={'E.'} detail={'jskc@gmail.com'} />
-                <ContactItem type={'A.'} detail={'Borivali West Mumbai 400091'} />
-                <ContactItem type={'T.'} detail={'10AM - 6PM (WEEKDAYS)'} />
+                {contactDetails.phone && (
+                  <ContactItem type={'P.'} detail={contactDetails.phone} />
+                )}
+                {contactDetails.email && (
+                  <ContactItem type={'E.'} detail={contactDetails.email} />
+                )}
+                {contactDetails.address && (
+                  <ContactItem
+                    type={'A.'}
+                    detail={contactDetails.address}
+                  />
+                )}
+                {contactDetails.work_timings && (
+                  <ContactItem type={'T.'} detail={contactDetails.work_timings} />
+                )}
               </div>
             </div>
           </div>

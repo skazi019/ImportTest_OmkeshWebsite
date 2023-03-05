@@ -7,13 +7,14 @@ from rest_framework.response import Response
 from rest_framework.decorators import api_view
 
 
-from .models import Founder, Principle, Gallery, SEO, Partner
+from .models import Founder, Principle, Gallery, SEO, Partner, Contact
 from .serializers import (
     GallerySerializer,
     PrincipleSerializer,
     FounderSerializer,
     SEOSerializer,
     PartnerSerializer,
+    ContactSerializer
 )
 
 
@@ -78,6 +79,17 @@ def get_partner(request):
             all_partners = Partner.objects.all()
             all_partners = sorted(all_partners, key=lambda item: item.order)
             serializer = PartnerSerializer(all_partners, many=True)
+            return Response(serializer.data, status=status.HTTP_200_OK)
+        except Exception as e:
+            return Response({"error": str(e)}, status=status.HTTP_404_NOT_FOUND)
+
+
+@api_view(["GET"])
+def get_contact_details(request):
+    if request.method == "GET":
+        try:
+            contact_details = Contact.objects.all()
+            serializer = ContactSerializer(contact_details[0])
             return Response(serializer.data, status=status.HTTP_200_OK)
         except Exception as e:
             return Response({"error": str(e)}, status=status.HTTP_404_NOT_FOUND)

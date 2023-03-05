@@ -96,3 +96,16 @@ class Partner(models.Model):
     def logo_url(self):
         if self.logo and hasattr(self.logo, "url"):
             return self.logo.url
+
+
+class Contact(models.Model):
+    class Meta:
+        verbose_name = "Contact Details"
+        verbose_name_plural = "Contact Details"
+
+    phone = models.CharField(
+        max_length=14, blank=False, help_text="Please enter as follows: +91 9999999999"
+    )
+    email = models.CharField(max_length=120, blank=False)
+    address = models.TextField()
+    work_timings = models.TextField()

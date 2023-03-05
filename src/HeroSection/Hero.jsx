@@ -111,7 +111,7 @@ export default function Hero() {
                       type: 'ease',
                     },
                   }}
-                  className='mt-12 place-self-start hover:underline hover:underline-offset-2 hover:text-accent-red transition duration-300'
+                  className='mt-12 w-fit place-self-start hover:underline hover:underline-offset-2 hover:text-accent-red transition duration-300'
                 >
                   <a href='#gallery' >See our Projects</a>
                 </motion.p>

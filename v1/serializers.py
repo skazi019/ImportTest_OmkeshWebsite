@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import Gallery, Principle, Founder, SEO, Partner
+from .models import Gallery, Principle, Founder, SEO, Partner, Contact
 
 
 class GallerySerializer(serializers.ModelSerializer):
@@ -30,3 +30,9 @@ class PartnerSerializer(serializers.ModelSerializer):
     class Meta:
         model = Partner
         fields = ("order", "name", "logo_url")
+
+
+class ContactSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Contact
+        fields = ("phone", "email", "address", "work_timings")
