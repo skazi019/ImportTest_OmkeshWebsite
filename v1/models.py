@@ -4,7 +4,7 @@ from django.db import models
 
 class Gallery(models.Model):
     class Meta:
-            verbose_name_plural = 'Gallery'
+        verbose_name_plural = "Gallery"
 
     index = models.SmallIntegerField(default=1)
     description = models.TextField(
@@ -66,8 +66,8 @@ class Founder(models.Model):
 
 class SEO(models.Model):
     class Meta:
-            verbose_name = 'SEO'
-            verbose_name_plural = 'SEO'
+        verbose_name = "SEO"
+        verbose_name_plural = "SEO"
 
     title = models.CharField(
         blank=False, max_length=120, default="Jay Shree Krishna Consultants"
@@ -76,6 +76,21 @@ class SEO(models.Model):
         blank=False, default="Professional structural engineers"
     )
     logo = models.ImageField(upload_to="seo", blank=True)
+
+    @property
+    def logo_url(self):
+        if self.logo and hasattr(self.logo, "url"):
+            return self.logo.url
+
+
+class Partner(models.Model):
+    order = models.SmallIntegerField(default=1)
+    name = models.CharField(
+        blank=False, max_length=120, help_text="Name of your client"
+    )
+    logo = models.ImageField(
+        upload_to="partners", blank=False, help_text="Logo of your client"
+    )
 
     @property
     def logo_url(self):

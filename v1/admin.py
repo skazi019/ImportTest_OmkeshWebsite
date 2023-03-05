@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from .models import Gallery, Principle, Founder, SEO
+from .models import Gallery, Principle, Founder, SEO, Partner
 
 
 class GalleryView(admin.ModelAdmin):
@@ -34,8 +34,14 @@ class SEOView(admin.ModelAdmin):
             return True
         return False
 
+class PartnerView(admin.ModelAdmin):
+    list_display = ("order", "name")
+    list_editable = ["order"]
+    ordering = ["order"]
+    list_display_links = ("name",)
 
 admin.site.register(Gallery, GalleryView)
 admin.site.register(Principle, PrincipleView)
 admin.site.register(Founder, FounderView)
 admin.site.register(SEO, SEOView)
+admin.site.register(Partner, PartnerView)

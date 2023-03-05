@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import Gallery, Principle, Founder, SEO
+from .models import Gallery, Principle, Founder, SEO, Partner
 
 
 class GallerySerializer(serializers.ModelSerializer):
@@ -24,3 +24,9 @@ class SEOSerializer(serializers.ModelSerializer):
     class Meta:
         model = SEO
         fields = ("title", "description", "logo_url")
+
+
+class PartnerSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Partner
+        fields = ("order", "name", "logo_url")
