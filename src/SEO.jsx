@@ -1,7 +1,29 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Helmet } from 'react-helmet'
 
 export default function SEO() {
+  const [seoData, setSeoData] = useState([])
+
+  function getSeoData() {
+    fetch(process.env.REACT_APP_BACKEND_URI + '/seo').then(
+      async function (response) {
+        const res = response
+        const data = await res.json()
+        if (data) {
+          console.log(data)
+          setSeoData(data)
+        } else {
+          console.log('Error while getting princples')
+        }
+      }
+    )
+  }
+
+  useEffect(() => {
+    getSeoData()
+    return () => {}
+  }, [])
+
   return (
     <div className='application'>
       <Helmet>
@@ -11,11 +33,11 @@ export default function SEO() {
         <meta name='theme-color' content='#000000' />
         <meta
           name='description'
-          content='We are professional structural consultants building safe and solid building designs'
+          content={seoData.description}
         />
         // <link rel='apple-touch-icon' href='/logo192.png' />
         <link rel='manifest' href='/manifest.json' />
-        <title>Jay Shree Krishna Consultants</title>
+        <title>seoData.title</title>
       </Helmet>
     </div>
   )

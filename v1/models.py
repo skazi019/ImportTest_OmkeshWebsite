@@ -76,3 +76,8 @@ class SEO(models.Model):
         blank=False, default="Professional structural engineers"
     )
     logo = models.ImageField(upload_to="seo", blank=True)
+
+    @property
+    def logo_url(self):
+        if self.logo and hasattr(self.logo, "url"):
+            return self.logo.url

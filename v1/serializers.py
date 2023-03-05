@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import Gallery, Principle, Founder
+from .models import Gallery, Principle, Founder, SEO
 
 
 class GallerySerializer(serializers.ModelSerializer):
@@ -18,3 +18,9 @@ class FounderSerializer(serializers.ModelSerializer):
     class Meta:
         model = Founder
         fields = ("order", "name", "bio", "imageUrl")
+
+
+class SEOSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = SEO
+        fields = ("title", "description", "logo_url")

@@ -7,8 +7,8 @@ from rest_framework.response import Response
 from rest_framework.decorators import api_view
 
 
-from .models import Founder, Principle, Gallery
-from .serializers import GallerySerializer, PrincipleSerializer, FounderSerializer
+from .models import Founder, Principle, Gallery, SEO
+from .serializers import GallerySerializer, PrincipleSerializer, FounderSerializer, SEOSerializer
 
 
 # Create your views here.
@@ -46,6 +46,17 @@ def get_founders(request):
         try:
             all_founders = Founder.objects.all()
             serializer = FounderSerializer(all_founders, many=True)
+            return Response(serializer.data, status=status.HTTP_200_OK)
+        except Exception as e:
+            return Response({"error": str(e)}, status=status.HTTP_404_NOT_FOUND)
+
+
+@api_view(["GET"])
+def get_seo(request):
+    if request.method == "GET":
+        try:
+            seo_data = SEO.objects.all()
+            serializer = SEOSerializer(seo_data, many=True)
             return Response(serializer.data, status=status.HTTP_200_OK)
         except Exception as e:
             return Response({"error": str(e)}, status=status.HTTP_404_NOT_FOUND)

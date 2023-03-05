@@ -7,6 +7,7 @@ from .views import (
     get_gallery_images,
     get_principles,
     get_founders,
+    get_seo,
 )
 
 urlpatterns = [
@@ -14,4 +15,5 @@ urlpatterns = [
     path(route="gallery", view=get_gallery_images, name="gallery"),
     path(route="principles", view=get_principles, name="principles"),
     path(route="founders", view=get_founders, name="founders"),
+    path(route="seo", view=get_seo, name="seo"),
 ]
