@@ -97,7 +97,7 @@ export default function Hero() {
                     luctus.
                   </motion.p>
                 </motion.div>
-                <motion.a
+                <motion.p
                   initial={{
                     visibility: 'hidden',
                     opacity: 0,
@@ -112,10 +112,9 @@ export default function Hero() {
                     },
                   }}
                   className='mt-12 place-self-start hover:underline hover:underline-offset-2 hover:text-accent-red transition duration-300'
-                    href='#gallery'
                 >
-                  See our Projects
-                </motion.a>
+                  <a href='#gallery' >See our Projects</a>
+                </motion.p>
               </div>
 
               {/* Animating the Hero Image on lg and above since it does not look 
