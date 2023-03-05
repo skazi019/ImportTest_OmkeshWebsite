@@ -58,7 +58,7 @@ export default function Gallery() {
 
   return (
     <>
-      <section className='mt-32 lg:mt-34 h-auto w-screen w-full px-4 md:px-10 lg:mx-auto lg:max-w-6xl'>
+      <section id="gallery" className='mt-32 lg:mt-34 h-auto w-screen w-full px-4 md:px-10 lg:mx-auto lg:max-w-6xl'>
         <div className='flex flex-row justify-between items-center'>
           <h1 className='font-header font-semibold text-5xl leading-normal break-words'>
             Gallery
