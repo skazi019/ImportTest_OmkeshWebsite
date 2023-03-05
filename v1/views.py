@@ -56,7 +56,7 @@ def get_seo(request):
     if request.method == "GET":
         try:
             seo_data = SEO.objects.all()
-            serializer = SEOSerializer(seo_data, many=True)
+            serializer = SEOSerializer(seo_data[0])
             return Response(serializer.data, status=status.HTTP_200_OK)
         except Exception as e:
             return Response({"error": str(e)}, status=status.HTTP_404_NOT_FOUND)

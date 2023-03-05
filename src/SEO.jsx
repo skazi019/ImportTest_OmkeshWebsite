@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { Helmet } from 'react-helmet'
 
 export default function SEO() {
@@ -37,7 +37,7 @@ export default function SEO() {
         />
         // <link rel='apple-touch-icon' href='/logo192.png' />
         <link rel='manifest' href='/manifest.json' />
-        <title>seoData.title</title>
+        <title>{seoData.title}</title>
       </Helmet>
     </div>
   )
