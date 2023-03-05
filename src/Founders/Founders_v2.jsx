@@ -86,9 +86,9 @@ export default function Founders() {
           <div className='mt-14 flex flex-col gap-10 justify-center items-center'>
             {allFounders.map((founderData, index) => (
               <div className='relative group overflow-hidden'>
-                <img src={founderData.imageUrl} className='rounded-md' />
+                <img src={founderData.imageUrl} className='rounded-md w-full object-cover' />
                 <h1 className='mt-2 font-header text-3xl'>{founderData.name}</h1>
-                <p className='mt-4 text-accent-gray block'>{founderData.bio}</p>
+                <p className='mt-2 text-accent-gray block'>{founderData.bio}</p>
               </div>
             ))}
           </div>
