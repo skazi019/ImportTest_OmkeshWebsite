@@ -83,16 +83,12 @@ export default function Founders() {
             </AnimatePresence>
           </div>
         ) : (
-          <div className='mt-14 flex flex-col lg:flex-row gap-10 lg:gap-2 justify-center lg:justify-start items-center lg:items-start'>
+          <div className='mt-14 flex flex-col gap-10 justify-center items-center'>
             {allFounders.map((founderData, index) => (
               <div className='relative group overflow-hidden'>
-                <img src={founderData.imageUrl} />
-                <div className='absolute left-4 bottom-8'>
-                  <h1 className='font-header text-5xl'>{founderData.name}</h1>
-                  <p className='mt-4 text-accent-gray block'>
-                    {founderData.bio}
-                  </p>
-                </div>
+                <img src={founderData.imageUrl} className='rounded-md' />
+                <h1 className='mt-2 font-header text-3xl'>{founderData.name}</h1>
+                <p className='mt-4 text-accent-gray block'>{founderData.bio}</p>
               </div>
             ))}
           </div>
