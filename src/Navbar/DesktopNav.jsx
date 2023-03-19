@@ -4,9 +4,12 @@ import Headroom from 'react-headroom'
 
 const links = [
   { name: 'Home', to: '#', id: 1 },
-  { name: 'About', to: '#', id: 2 },
-  { name: 'Founders', to: '#', id: 3 },
-  { name: 'Contact', to: '#', id: 4 },
+  { name: 'About', to: '#aboutus', id: 2 },
+  { name: 'Principles', to: '#principles', id: 3 },
+  { name: 'Gallery', to: '#gallery', id: 4 },
+  { name: 'Founders', to: '#founders', id: 5 },
+  { name: 'Partners', to: '#partners', id: 6 },
+  { name: 'Contact', to: '#contactus', id: 7 },
 ]
 
 const SCREENWIDTH = window.innerWidth
@@ -86,12 +89,13 @@ export default function DesktopNavbar() {
             </div>
 
             <div className='px-4 md:px-10 lg:mx-auto lg:max-w-6xl w-full '>
-              <motion.div className='h-screen w-fit flex flex-col gap-12 lg:gap-16 justify-center items-left ml-14 pb-24'>
+              <motion.div className='h-screen w-fit flex flex-col gap-8 justify-center items-left ml-14 pb-24'>
                 {links.map(({ name, to, id }) => (
                   <motion.a
                     key={id}
                     href={to}
-                    className='text-5xl md:text-7xl duration-300 ease-in-out hover:translate-x-4 hover:border-l-4 hover:pl-4'
+                    className='text-5xl duration-300 ease-in-out hover:translate-x-4 hover:border-l-4 hover:pl-4'
+                    onClick={() => setopenNav(!openNav)}
                   >
                     {name}
                   </motion.a>

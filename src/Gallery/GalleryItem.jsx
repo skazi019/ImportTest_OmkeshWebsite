@@ -1,11 +1,10 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { LazyLoadImage } from 'react-lazy-load-image-component'
 import { motion, AnimatePresence } from 'framer-motion'
 import 'react-lazy-load-image-component/src/effects/blur.css'
 
 export default function GalleryItem({ description, imageURL }) {
   // const [loaded, setLoaded] = useState(false)
-  // console.log('Image load status: ', loaded)
 
   return (
     <AnimatePresence>

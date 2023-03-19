@@ -1,4 +1,4 @@
-import { motion, AnimatePresence, AnimateSharedLayout } from 'framer-motion'
+import { motion } from 'framer-motion'
 import React, { useEffect, useState } from 'react'
 
 export default function FoundingMember({

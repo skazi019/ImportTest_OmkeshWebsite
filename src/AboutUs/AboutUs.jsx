@@ -13,7 +13,7 @@ export default function AboutUs() {
 
   return (
     <>
-      <section className='mt-32 lg:mt-60 h-auto w-screen w-full px-4 md:px-10 lg:mx-auto lg:max-w-6xl'>
+      <section id="aboutus" className='mt-32 lg:mt-60 h-auto w-screen w-full px-4 md:px-10 lg:mx-auto lg:max-w-6xl'>
         <div className='flex flex-col lg:flex-row gap-8 lg:gap-0 justify-start items-start'>
           <h1 className='lg:w-1/2 font-header font-semibold text-5xl leading-normal break-words'>
             About Us

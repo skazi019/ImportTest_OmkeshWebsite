@@ -64,7 +64,7 @@ export default function Hero() {
                         staggerChildren: 1,
                       },
                     }}
-                    className='flex flex-row flex-wrap gap-2 font-header font-semibold text-5xl lg:text-[5rem] lg:w-[90rem] leading-normal break-words'
+                    className='flex flex-row flex-wrap gap-2 font-header font-semibold text-4xl lg:text-[5rem] lg:w-[90rem] leading-normal break-words'
                   >
                     {'Jay Shree Krishna Consultants'
                       .split(' ')
@@ -111,9 +111,9 @@ export default function Hero() {
                       type: 'ease',
                     },
                   }}
-                  className='mt-12 place-self-start'
+                  className='mt-12 w-fit place-self-start hover:underline hover:underline-offset-2 hover:text-accent-red transition duration-300'
                 >
-                  Projects
+                  <a href='#gallery' >See our Projects</a>
                 </motion.p>
               </div>
 

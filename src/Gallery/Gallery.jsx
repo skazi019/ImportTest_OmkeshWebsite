@@ -1,5 +1,5 @@
-import React, { useState } from 'react'
-import { motion, AnimatePresence } from 'framer-motion'
+import React, { useState, useEffect } from 'react'
+import { motion } from 'framer-motion'
 import { apiData } from '../data'
 import GalleryItem from './GalleryItem'
 
@@ -7,6 +7,7 @@ export default function Gallery() {
   const [imageIndex, setImageIndex] = useState(1)
   const [leftButtonAnimate, setleftButtonAnimate] = useState(false)
   const [rightButtonAnimate, setrightButtonAnimate] = useState(false)
+  const [galleryImages, setGalleryImages] = useState([])
 
   const animateGalleryButton = (setFunc) => {
     setFunc(true)
@@ -35,9 +36,28 @@ export default function Gallery() {
     animateGalleryButton(setleftButtonAnimate)
   }
 
+  function getAllGalleryImages() {
+    fetch(process.env.REACT_APP_BACKEND_URI + '/gallery').then(async function (
+      response
+    ) {
+      const res = response
+      const data = await res.json()
+      if (data) {
+        setGalleryImages(data)
+      } else {
+        console.log('Error while getting gallery images')
+      }
+    })
+  }
+
+  useEffect(() => {
+    getAllGalleryImages()
+    return () => {}
+  }, [])
+
   return (
     <>
-      <section className='mt-32 lg:mt-34 h-auto w-screen w-full px-4 md:px-10 lg:mx-auto lg:max-w-6xl'>
+      <section id="gallery" className='mt-32 lg:mt-34 h-auto w-screen w-full px-4 md:px-10 lg:mx-auto lg:max-w-6xl'>
         <div className='flex flex-row justify-between items-center'>
           <h1 className='font-header font-semibold text-5xl leading-normal break-words'>
             Gallery
@@ -93,7 +113,7 @@ export default function Gallery() {
             </motion.button>
           </div>
         </div>
-        {apiData
+        {galleryImages
           .filter((item) => item.index === imageIndex)
           .map((item) => (
             <GalleryItem

@@ -1,31 +1,9 @@
 import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import founder1Image from '../assets/founder_1.png'
-import founder2Image from '../assets/founder_2.png'
 
 export default function Founders() {
-  const allFounders = [
-    {
-      id: 1,
-      name: 'Lorem Ipsum',
-      imageSrc: founder1Image,
-      bio: 'Lorem ipsum dolor sit amet, qui minim labore adipisicing minim sint cillum sint consectetur cupidatat.',
-    },
-    {
-      id: 2,
-      name: 'Omkesh Chaurasia',
-      imageSrc: founder2Image,
-      bio: 'Lorem ipsum dolor sit amet, qui minim labore adipisicing minim sint cillum sint consectetur cupidatat.',
-    },
-    {
-      id: 3,
-      name: 'Lorem Ipsum',
-      imageSrc: founder1Image,
-      bio: 'Lorem ipsum dolor sit amet, qui minim labore adipisicing minim sint cillum sint consectetur cupidatat.',
-    },
-  ]
-
   const [mobile, setmobile] = useState(false)
+  const [allFounders, setAllFounders] = useState([])
 
   const interpretViewport = () => {
     // for screen width below 1024px we do not want the Hero Image animation.
@@ -34,36 +12,51 @@ export default function Founders() {
     // tailwind 5xl - 1024px
 
     if (window.innerWidth < 1024) {
-      console.log('setting mobile true')
       setmobile(true)
     } else {
       setmobile(false)
     }
   }
 
+  function getAllFounders() {
+    fetch(process.env.REACT_APP_BACKEND_URI + '/founders').then(async function (
+      response
+    ) {
+      const res = response
+      const data = await res.json()
+      if (data) {
+        setAllFounders(data)
+      } else {
+        console.log('Error while getting princples')
+      }
+    })
+  }
+
   useEffect(() => {
     interpretViewport()
+    getAllFounders()
+    return () => {}
   }, [window.innerWidth])
 
   return (
     <>
-      <section className='mt-32 lg:mt-34 h-auto w-screen w-full px-4 md:px-10 lg:mx-auto lg:max-w-6xl'>
+      <section id="founders" className='mt-32 lg:mt-34 h-auto w-screen w-full px-4 md:px-10 lg:mx-auto lg:max-w-6xl'>
         <h1 className='font-header font-semibold text-5xl leading-normal break-words'>
           Our Founders
         </h1>
         {!mobile ? (
-          <div className='lg:-skew-x-12 mt-14 h-[35rem] flex flex-col lg:flex-row justify-center lg:justify-start items-center lg:items-start overflow-hidden'>
+          <div className='mt-14 h-[35rem] flex flex-col lg:flex-row justify-center lg:justify-start items-center lg:items-start overflow-hidden rounded-md'>
             <AnimatePresence>
               {allFounders.map((founderData, index) => (
                 <motion.div
                   initial={{
-                    width: '33.34%',
+                    width: 100 / allFounders.length + '%',
                   }}
                   key={founderData.name + index}
                   whileHover={{
                     width: '80%',
                     transition: {
-                      duration: 0.3,
+                      duration: 0.5,
                       type: 'tween',
                       ease: 'easeInOut',
                     },
@@ -71,8 +64,8 @@ export default function Founders() {
                   className='relative group overflow-hidden'
                 >
                   <img
-                    src={founderData.imageSrc}
-                    className='lg:skew-x-12 object-cover aspect-[9/16] h-[55rem] lg:hover:opacity-40'
+                    src={founderData.imageUrl}
+                    className='object-cover h-[55rem] lg:hover:opacity-40'
                   />
                   <div className='absolute hidden group-hover:block group-hover:opacity-100 transition duration-300 left-4 top-8'>
                     <h1 className='font-header text-5xl'>{founderData.name}</h1>
@@ -88,16 +81,12 @@ export default function Founders() {
             </AnimatePresence>
           </div>
         ) : (
-          <div className='mt-14 flex flex-col lg:flex-row gap-10 lg:gap-2 justify-center lg:justify-start items-center lg:items-start'>
+          <div className='mt-14 flex flex-col gap-10 justify-center items-center'>
             {allFounders.map((founderData, index) => (
               <div className='relative group overflow-hidden'>
-                <img src={founderData.imageSrc} />
-                <div className='absolute left-4 bottom-8'>
-                  <h1 className='font-header text-5xl'>{founderData.name}</h1>
-                  <p className='mt-4 text-accent-gray block'>
-                    {founderData.bio}
-                  </p>
-                </div>
+                <img src={founderData.imageUrl} className='rounded-md w-full object-cover' />
+                <h1 className='mt-2 font-header text-3xl'>{founderData.name}</h1>
+                <p className='mt-2 text-accent-gray block'>{founderData.bio}</p>
               </div>
             ))}
           </div>
